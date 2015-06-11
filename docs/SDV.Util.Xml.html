@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: Xml</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: Xml</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="SDV.html">SDV</a><a href="SDV.Util.html">.Util</a>.</span>
+        
+        Xml
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Base namespace for SDV.js library XML utils.All supporting XML utils are accessible through it.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line1400">line 1400</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getFromFile"><span class="type-signature">(static) </span>getFromFile<span class="signature">(options)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Makes a GET-request to address specified in 'filePath'-option, and receives XML-document (in a case of success).In case of invalid data in file, data will be received as string instead of XML-document.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Request options.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>filePath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Path to target XML-document (for most browsers it could be even cross domain URL).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>async</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    true
+                
+                </td>
+            
+
+            <td class="description last">Flag: represents if request should be asynchronous or not.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timeout</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    0
+                
+                </td>
+            
+
+            <td class="description last">Request timeout (Non negative integer value).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onSuccess</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Callback-function that handles successful request completion.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    function(error, xhr) { console.error(error.message); }
+                
+                </td>
+            
+
+            <td class="description last">Callback-function that handles failed request.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line1566">line 1566</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns XMLHttpRequest-object, or ActiveXObject (for old IE versions),or XDomainRequest-object (for IE8/IE9 if given file path is cross domain URL).
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// If server contains file 'myXmlFile.xml' in the same path as the current page, and that file contains following data:// &lt;node1>1&lt;/node1>, then onSuccess callback-function will receive that data and log it to console.// In the case of fail, error message will be logged to browser console.SDV.Util.Xml.getFromFile({ filePath: 'myXmlFile.xml', onSuccess: function(data, xhr) { console.log(data); } });</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".isXml"><span class="type-signature">(static) </span>isXml<span class="signature">(xmlObject)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Checks whether a given object is an XML-document.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>xmlObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Inspected object.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line1425">line 1425</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns true if inspected object is an XML-document, otherwise returns false.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>SDV.Util.Xml.isXml(); // false.SDV.Util.Xml.isXml(null); // false.SDV.Util.Xml.isXml('This is a string'); // false.SDV.Util.Xml.isXml(1); // false.SDV.Util.Xml.isXml([1]); // false.SDV.Util.Xml.isXml(function(){return 1;}); // false.SDV.Util.Xml.isXml({one: 1}); // true.SDV.Util.Xml.isXml(SDV.Util.Xml.parse('&lt;node1>1&lt;/node1>')); // true.</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".parse"><span class="type-signature">(static) </span>parse<span class="signature">(xmlString)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Transforms given string into XML-document.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>xmlString</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">String, contains stringed XML-information.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line1452">line 1452</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Throws a SyntaxError exception if the given string contains invalid XML.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">SyntaxError</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    A <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLDocument">XMLDocument</a>or common <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document">Document</a>that represents the DOM tree of the XML source.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>SDV.Util.Xml.parse(); // Will throw SyntaxError.SDV.Util.Xml.parse(''); // Will throw SyntaxError.SDV.Util.Xml.parse('{ property1: 1 }'); // Will throw SyntaxError.SDV.Util.Xml.parse('&lt;node1>1&lt;/node1>'); // Will return document, contains parsed XML: &lt;root>&lt;node1>1&lt;/node1>&lt;/root>.</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".stringify"><span class="type-signature">(static) </span>stringify<span class="signature">(xmlObject)</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Transforms given XML-document into string, contains stringed representation of given XML.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>xmlObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">document</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">XML-document being converted to a string.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line1505">line 1505</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+<ul>
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Throws a TypeError exception if given object is not a document at all,if it is, for example, a number, or a string.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">TypeError</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Throws a SyntaxError exception if the given object is not valid XML-document.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">SyntaxError</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    
+        <li>
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Throws common Error exception if browser don't support any XML-serialization facilities.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+</li>
+    </ul>
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns string, contains stringed representation of given XML-document.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>SDV.Util.Xml.stringify();                  // It will throw TypeError.SDV.Util.Xml.stringify(true);                // It will throw TypeError.SDV.Util.Xml.stringify('foo');               // It will throw TypeError.SDV.Util.Xml.stringify([1, 'false', false]); // It will throw TypeError.SDV.Util.Xml.stringify({ x: 5 });            // It will throw TypeError.// It will throw SyntaxError, because '&lt;node1>' isn't closed.SDV.Util.Xml.stringify(SDV.Util.Xml.parse('&lt;node1>1&lt;/blahblah>'));// It will return '&lt;node1>1&lt;/node1>'.SDV.Util.Xml.stringify(SDV.Util.Xml.parse('&lt;node1>1&lt;/node1>'));</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Condition.html">Condition</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="Hsb.html">Hsb</a></li><li><a href="Hsl.html">Hsl</a></li><li><a href="Rgb.html">Rgb</a></li></ul><h3>Namespaces</h3><ul><li><a href="SDV.html">SDV</a></li><li><a href="SDV.Color.html">Color</a></li><li><a href="SDV.Color.Model.html">Model</a></li><li><a href="SDV.Color.Model.Hex.html">Hex</a></li><li><a href="SDV.Color.Model.Hsb.html">Hsb</a></li><li><a href="SDV.Color.Model.Hsl.html">Hsl</a></li><li><a href="SDV.Color.Model.Rgb.html">Rgb</a></li><li><a href="SDV.Condition.html">Condition</a></li><li><a href="SDV.Enumerable.html">Enumerable</a></li><li><a href="SDV.Localization.html">Localization</a></li><li><a href="SDV.Tool.html">Tool</a></li><li><a href="SDV.Util.html">Util</a></li><li><a href="SDV.Util.Ajax.html">Ajax</a></li><li><a href="SDV.Util.Array.html">Array</a></li><li><a href="SDV.Util.Boolean.html">Boolean</a></li><li><a href="SDV.Util.Function.html">Function</a></li><li><a href="SDV.Util.Geojson.html">Geojson</a></li><li><a href="SDV.Util.Json.html">Json</a></li><li><a href="SDV.Util.Number.html">Number</a></li><li><a href="SDV.Util.Object.html">Object</a></li><li><a href="SDV.Util.String.html">String</a></li><li><a href="SDV.Util.Validation.html">Validation</a></li><li><a href="SDV.Util.Xml.html">Xml</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.1</a> on Thu Jun 11 2015 06:01:21 GMT+0500 (RTZ 4 (зима))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

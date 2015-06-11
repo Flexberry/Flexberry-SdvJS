@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/core/util/sdv.util.xml.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/core/util/sdv.util.xml.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">3.45% <small>(1 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">3.45% <small>(1 / 29)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/core/util/</a> &#187; sdv.util.xml.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Base namespace for SDV.js library XML utils.
+ * All supporting XML utils are accessible through it.
+ * @namespace SDV.Util.Xml
+ * @memberof SDV.Util
+ */
+SDV.Util.Xml = {
+    /**
+     * Checks whether a given object is an XML-document.
+     * @memberof SDV.Util.Xml
+     * @public
+     * @function
+     * @param {object} xmlObject Inspected object.
+     * @returns {boolean} Returns true if inspected object is an XML-document, otherwise returns false.
+     *
+     * @example
+     * SDV.Util.Xml.isXml(); // false.
+     * SDV.Util.Xml.isXml(null); // false.
+     * SDV.Util.Xml.isXml('This is a string'); // false.
+     * SDV.Util.Xml.isXml(1); // false.
+     * SDV.Util.Xml.isXml([1]); // false.
+     * SDV.Util.Xml.isXml(function(){return 1;}); // false.
+     * SDV.Util.Xml.isXml({one: 1}); // true.
+     * SDV.Util.Xml.isXml(SDV.Util.Xml.parse('&lt;node1&gt;1&lt;/node1&gt;')); // true.
+     */
+    isXml: <span class="fstat-no" title="function not covered" >function(xmlObject) {</span>
+<span class="cstat-no" title="statement not covered" >        var givenType = Object.prototype.toString.call(xmlObject);</span>
+<span class="cstat-no" title="statement not covered" >        return (givenType === '[object XMLDocument]'</span>
+            || (givenType === '[object Document]' &amp;&amp; SDV.Util.String.isString(xmlObject.xmlVersion))
+            || (givenType === '[object Object]'
+                &amp;&amp; window.ActiveXObject
+                &amp;&amp; SDV.Util.String.isString(xmlObject.xml)
+                &amp;&amp; typeof xmlObject.getElementsByTagName !== 'undefined'));
+    },
+&nbsp;
+    /**
+     * Transforms given string into XML-document.
+     * @memberof SDV.Util.Xml
+     * @public
+     * @function
+     * @throws {SyntaxError} Throws a SyntaxError exception if the given string contains invalid XML.
+     * @param {string} xmlString String, contains stringed XML-information.
+     * @returns {object} A {@link https://developer.mozilla.org/en-US/docs/Web/API/XMLDocument|XMLDocument}
+     * or common {@link https://developer.mozilla.org/en-US/docs/Web/API/Document|Document}
+     * that represents the DOM tree of the XML source.
+     *
+     * @example
+     * SDV.Util.Xml.parse(); // Will throw SyntaxError.
+     * SDV.Util.Xml.parse(''); // Will throw SyntaxError.
+     * SDV.Util.Xml.parse('{ property1: 1 }'); // Will throw SyntaxError.
+     * SDV.Util.Xml.parse('&lt;node1&gt;1&lt;/node1&gt;'); // Will return document, contains parsed XML: &lt;root&gt;&lt;node1&gt;1&lt;/node1&gt;&lt;/root&gt;.
+     */
+    parse: <span class="fstat-no" title="function not covered" >function(xmlString) {</span>
+<span class="cstat-no" title="statement not covered" >        var xml, tmp;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >            if (window.DOMParser) {</span>
+<span class="cstat-no" title="statement not covered" >                tmp = new window.DOMParser();</span>
+<span class="cstat-no" title="statement not covered" >                xml = tmp.parseFromString(xmlString , 'text/xml');</span>
+            } else <span class="cstat-no" title="statement not covered" >if (window.ActiveXObject){</span>
+<span class="cstat-no" title="statement not covered" >                xml = new window.ActiveXObject('Microsoft.XMLDOM');</span>
+<span class="cstat-no" title="statement not covered" >                xml.async = 'false';</span>
+<span class="cstat-no" title="statement not covered" >                xml.loadXML(xmlString);</span>
+            }
+        } catch(e) {
+<span class="cstat-no" title="statement not covered" >            xml = null;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!xml || !xml.documentElement || xml.getElementsByTagName('parsererror').length) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new SyntaxError(SDV.Localization.getResource('wrongParameterFormatError')({</span>
+                parameterName: 'xmlString',
+                actualValue: xmlString,
+                expectedFormat: 'XML'
+            }));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return xml;</span>
+    },
+&nbsp;
+    /**
+     * Transforms given XML-document into string, contains stringed representation of given XML.
+     * @memberof SDV.Util.Xml
+     * @public
+     * @function
+     * @throws {TypeError} Throws a TypeError exception if given object is not a document at all,
+     * if it is, for example, a number, or a string.
+     * @throws {SyntaxError} Throws a SyntaxError exception if the given object is not valid XML-document.
+     * @throws {Error} Throws common Error exception if browser don't support any XML-serialization facilities.
+     *
+     * @param {document} xmlObject XML-document being converted to a string.
+     * @returns {string} Returns string, contains stringed representation of given XML-document.
+     *
+     * @example
+     * SDV.Util.Xml.stringify();                  // It will throw TypeError.
+     * SDV.Util.Xml.stringify(true);                // It will throw TypeError.
+     * SDV.Util.Xml.stringify('foo');               // It will throw TypeError.
+     * SDV.Util.Xml.stringify([1, 'false', false]); // It will throw TypeError.
+     * SDV.Util.Xml.stringify({ x: 5 });            // It will throw TypeError.
+     *
+     * // It will throw SyntaxError, because '&lt;node1&gt;' isn't closed.
+     * SDV.Util.Xml.stringify(SDV.Util.Xml.parse('&lt;node1&gt;1&lt;/blahblah&gt;'));
+     *
+     * // It will return '&lt;node1&gt;1&lt;/node1&gt;'.
+     * SDV.Util.Xml.stringify(SDV.Util.Xml.parse('&lt;node1&gt;1&lt;/node1&gt;'));
+     */
+    stringify: <span class="fstat-no" title="function not covered" >function(xmlObject) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!SDV.Util.Xml.isXml(xmlObject)) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new TypeError(SDV.Localization.getResource('wrongParameterTypeError')({</span>
+                parameterName: 'xmlObject',
+                actualValue: xmlObject,
+                expectedType: '[object XMLDocument]'
+            }));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var xmlString = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        try {</span>
+<span class="cstat-no" title="statement not covered" >            if (window.XMLSerializer) {</span>
+<span class="cstat-no" title="statement not covered" >                xmlString = (new window.XMLSerializer()).serializeToString(xmlObject);</span>
+            } else <span class="cstat-no" title="statement not covered" >if (window.ActiveXObject</span>
+                &amp;&amp; typeof xmlObject.getElementsByTagName !== 'undefined'
+                &amp;&amp; SDV.Util.String.isString(xmlObject.xml)) {
+<span class="cstat-no" title="statement not covered" >                xmlString = xmlObject.xml;</span>
+            }
+        }
+        catch(e) {
+<span class="cstat-no" title="statement not covered" >            throw new SyntaxError(SDV.Localization.getResource('wrongParameterFormatError')({</span>
+                parameterName: 'xmlObject',
+                actualValue: xmlObject,
+                expectedFormat: 'XML'
+            }));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (xmlString === null) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error(SDV.Localization.getResource('unsupportedFacilityError')([</span>
+                'XMLSerializer',
+                'ActiveXObject(\'Microsoft.XMLDOM\')'
+            ]));
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return xmlString;</span>
+    },
+&nbsp;
+    /**
+     * Makes a GET-request to address specified in 'filePath'-option, and receives XML-document (in a case of success).
+     * In case of invalid data in file, data will be received as string instead of XML-document.
+     * @memberof SDV.Util.Xml
+     * @public
+     * @function
+     * @param {object} options Request options.
+     * @param {string} options.filePath Path to target XML-document (for most browsers it could be even cross domain URL).
+     * @param {boolean} [options.async = true] Flag: represents if request should be asynchronous or not.
+     * @param {number} [options.timeout = 0] Request timeout (Non negative integer value).
+     * @param {function} options.onSuccess Callback-function that handles successful request completion.
+     * @param {function} [options.onError = function(error, xhr) { console.error(error.message); }]
+     * Callback-function that handles failed request.
+     *
+     * @returns {object} Returns XMLHttpRequest-object, or ActiveXObject (for old IE versions),
+     * or XDomainRequest-object (for IE8/IE9 if given file path is cross domain URL).
+     *
+     * @example
+     * // If server contains file 'myXmlFile.xml' in the same path as the current page, and that file contains following data:
+     * // &lt;node1&gt;1&lt;/node1&gt;, then onSuccess callback-function will receive that data and log it to console.
+     * // In the case of fail, error message will be logged to browser console.
+     * SDV.Util.Xml.getFromFile({ filePath: 'myXmlFile.xml', onSuccess: function(data, xhr) { console.log(data); } });
+     */
+    getFromFile: <span class="fstat-no" title="function not covered" >function(options) {</span>
+<span class="cstat-no" title="statement not covered" >        return SDV.Util.Ajax.makeRequest({</span>
+            url: options.filePath,
+            method: 'GET',
+            async: options.async,
+            timeout: options.timeout,
+            responseContentType: 'document',
+            onSuccess: options.onSuccess,
+            onError: options.onError
+        });
+    }
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Apr 30 2015 09:34:18 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

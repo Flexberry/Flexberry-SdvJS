@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: Validation</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: Validation</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="SDV.html">SDV</a><a href="SDV.Util.html">.Util</a>.</span>
+        
+        Validation
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Base namespace for SDV.js library validation utils.All supporting validation utils are accessible through it.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line80">line 80</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".validateOption"><span class="type-signature">(static) </span>validateOption<span class="signature">(validationOptions, optionValue)</span><span class="type-signature"> &rarr; {optionValidationResult}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Validates given option with given validation rules.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">validationOptions</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Options contains validation rules.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>optionValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Value of validating option.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line184">line 184</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Object contains validation results.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">optionValidationResult</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var httpMethodValidationOptions = {     optionName: 'method',     isRequired: true,     allowedTypes: ['String'],     allowedValues: ['GET', 'POST', 'PUT', 'DELETE']};// It will return { isValid: false, isDefined: false, message: 'Error. Required parameter \'method\' is undefined.' }.SDV.Util.Validation.validateOption(httpMethodValidationOptions);// It will return {//    isValid: false,//    isDefined: true,//    message: 'Error. Parameter \'method\' must be of type \'[object String]\', but not of type \'[object Number]\'.'// }.SDV.Util.Validation.validateOption(httpMethodValidationOptions, 12345);// It will return {//    isValid: false,//    isDefined: true,//    message: 'Error. Parameter \'method\' must have one of the following values: ' +//             '\'GET\', \'POST\', \'PUT\', \'DELETE\'. This value is not allowed: \'MyHttpMethod\'.'// }.SDV.Util.Validation.validateOption(httpMethodValidationOptions, 'MyHttpMethod');// It will return { isValid: true, isDefined: true, message: '' }.SDV.Util.Validation.validateOption(httpMethodValidationOptions, 'GET');</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".validateOptions"><span class="type-signature">(static) </span>validateOptions<span class="signature">(validationOptions, options, defaults)</span><span class="type-signature"> &rarr; {optionsValidationResult}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Validates given options-object with given set (array) of validation rules.Unlike the <a href="SDV.Util.Validation.html#.validateOption">SDV.Util.Validation.validateOption</a> method,this method allows to replace wrong or undefined options with given default values.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;validationOptions></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array contains validation rules for each option.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Validating options.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>defaults</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Options default values.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line423">line 423</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Object contains validation results.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">optionsValidationResult</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// Option 'method' is required, but 'timeout' is not.var myValidationOptions = [{     optionName: 'method',     isRequired: true,     allowedTypes: ['String'],     allowedValues: ['GET', 'POST', 'PUT', 'DELETE']}, {     optionName: 'timeout',     allowedTypes: ['Integer'],     minValue: 0,     minValueEqualityAllowed = true,     replaceWithDefaultIfUndefined = true}];// It will return { isValid: false, message: 'Error. Required parameter \'method\' is undefined.' }.SDV.Util.Validation.validateOptions(myValidationOptions);// It will return {//    isValid: false,//    message: 'Error. Parameter \'method\' must be of type \'[object String]\', but not of type \'[object Number]\'.'// }.var options = { method: 12345 };SDV.Util.Validation.validateOptions(myValidationOptions, options);// It will return {//    isValid: false,//    message: 'Error. Parameter \'method\' must have one of the following values: ' +//             '\'GET\', \'POST\', \'PUT\', \'DELETE\'. This value is not allowed: \'MyHttpMethod\'.'// }.var options = { method: 'MyHttpMethod' };SDV.Util.Validation.validateOptions(myValidationOptions, options);// It will return { isValid: true, message: '' }. And options will be equal to: { method: 'MyHttpMethod', timeout: 0 }.var options = { method: 'GET' };var defaults = { timeout: 0 };SDV.Util.Validation.validateOptions(myValidationOptions, options, defaults);// It will return {//    isValid: false,//    message: 'Error. Parameter \'timeout\' must be of type \'[object Integer]\', but not of type \'[object Number]\'.'// }.var options = { method: 'GET', timeout: 2.5 };SDV.Util.Validation.validateOptions(myValidationOptions, options);// It will return {//    isValid: false,//    message: 'Error. Parameter \'method\' must have one of the following values: >= 0'. This value is not allowed: -1.'// }.var options = { method: 'GET', timeout: -1 };SDV.Util.Validation.s(myValidationOptions, options);// It will return { isValid: true, message: '' }.var options = { method: 'GET', timeout: 1000 };SDV.Util.Validation.validateOptions(myValidationOptions, options);</code></pre>
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Type Definitions</h3>
+
+        
+                
+<h4 class="name" id=".optionsValidationResult">optionsValidationResult</h4>
+
+
+
+
+<div class="description">
+    Options validation result.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>isValid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag: represents if checked option is valid.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Message with error information if option is invalid, otherwise it will be an empty string.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line96">line 96</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id=".optionValidationResult">optionValidationResult</h4>
+
+
+
+
+<div class="description">
+    Option validation result.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>isValid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag: represents if checked option is valid.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isDefined</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag: represents if checked option is defined.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Message with error information if option is invalid, otherwise it will be an empty string.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line87">line 87</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id=".validationOptions">validationOptions</h4>
+
+
+
+
+<div class="description">
+    Options contains validation rules.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.optionName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Name of validating option.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.optionFullName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Full name of validating option(will be used instead of optionName in error message if option is invalid).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.isRequired</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Flag: represents if given option is required.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.allowedTypes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    []
+                
+                </td>
+            
+
+            <td class="description last">Array of type names allowed for given option(allowed values for this option are following:'String', 'Number', 'Integer', 'Boolean', 'Function', 'Object', 'Null', 'Array','StringArray' ,'NumberArray', 'IntegerArray', 'BooleanArray', 'FunctionArray', 'ObjectArray', 'ObjectOrNullArray').By default all types are allowed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.allowedValues</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;object></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    []
+                
+                </td>
+            
+
+            <td class="description last">Array of type values allowed for given option.By default all values are allowed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.minValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Minimum value allowed for given option (if option is numeric).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.maxValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Maximum value allowed for given option (if option is numeric).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.minValueEqualityAllowed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Flag: represents if value equals to given minValue is allowed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.maxValueEqualityAllowed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Flag: represents if value equals to given maxValue is allowed.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.replaceWithDefaultIfUndefined</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Flag: represents if it is possible to replace undefined option with predefined default value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.replaceWithDefaultIfInvalid</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Flag: represents if it is possible to replace invalid option with predefined default value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.postValidationMethod</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Custom method to be executed at the end of the validation process.It should apply one parameter - value of the validation option,and should return optionsValidationResult as its result.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationOptions.postValidationMethodOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">*</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Options for postValidationMethod (method will be called with these options).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line104">line 104</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+            
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Condition.html">Condition</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="Hsb.html">Hsb</a></li><li><a href="Hsl.html">Hsl</a></li><li><a href="Rgb.html">Rgb</a></li></ul><h3>Namespaces</h3><ul><li><a href="SDV.html">SDV</a></li><li><a href="SDV.Color.html">Color</a></li><li><a href="SDV.Color.Model.html">Model</a></li><li><a href="SDV.Color.Model.Hex.html">Hex</a></li><li><a href="SDV.Color.Model.Hsb.html">Hsb</a></li><li><a href="SDV.Color.Model.Hsl.html">Hsl</a></li><li><a href="SDV.Color.Model.Rgb.html">Rgb</a></li><li><a href="SDV.Condition.html">Condition</a></li><li><a href="SDV.Enumerable.html">Enumerable</a></li><li><a href="SDV.Localization.html">Localization</a></li><li><a href="SDV.Tool.html">Tool</a></li><li><a href="SDV.Util.html">Util</a></li><li><a href="SDV.Util.Ajax.html">Ajax</a></li><li><a href="SDV.Util.Array.html">Array</a></li><li><a href="SDV.Util.Boolean.html">Boolean</a></li><li><a href="SDV.Util.Function.html">Function</a></li><li><a href="SDV.Util.Geojson.html">Geojson</a></li><li><a href="SDV.Util.Json.html">Json</a></li><li><a href="SDV.Util.Number.html">Number</a></li><li><a href="SDV.Util.Object.html">Object</a></li><li><a href="SDV.Util.String.html">String</a></li><li><a href="SDV.Util.Validation.html">Validation</a></li><li><a href="SDV.Util.Xml.html">Xml</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.1</a> on Thu Jun 11 2015 06:01:21 GMT+0500 (RTZ 4 (зима))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

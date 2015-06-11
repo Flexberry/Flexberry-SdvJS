@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: Geojson</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: Geojson</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="SDV.html">SDV</a><a href="SDV.Util.html">.Util</a>.</span>
+        
+        Geojson
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Base namespace for SDV.js library GEOJSON utils.All supporting GEOJSON utils are accessible through it.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line2069">line 2069</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="http://geojson.org/geojson-spec.html">Learn about GEOJSON data format.</a></li>
+        </ul>
+    </dd>
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".getGeoObjects"><span class="type-signature">(static) </span>getGeoObjects<span class="signature">(geoJsonObject, validationNeeded)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets array of geo-objects contained in given GeoJSON object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>geoJsonObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">GeoJSON object of interest.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>validationNeeded</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag: indicates whether preliminary validation of given object is needed or not.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line2632">line 2632</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns array of geo-objects contained in given GeoJSON object.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>SDV.Util.Geojson.getGeoObjects(); // []. And error message in console, about invalid GeoJSON.SDV.Util.Geojson.getGeoObjects(null); // []. And error message in console, about invalid GeoJSON.SDV.Util.Geojson.getGeoObjects('This is a string'); // []. And error message in console, about invalid GeoJSON.SDV.Util.Geojson.getGeoObjects(1); // []. And error message in console, about invalid GeoJSON.SDV.Util.Geojson.getGeoObjects([1]); // []. And error message in console, about invalid GeoJSON.SDV.Util.Geojson.getGeoObjects(function(){ return 1; }); // []. And error message in console, about invalid GeoJSON.SDV.Util.Geojson.getGeoObjects({}); // []. And error message in console, about invalid GeoJSON.// [{type: 'Point', coordinates: [0.0, 1.0]}].SDV.Util.Geojson.getGeoObjects({     type: 'Point',     coordinates: [0.0, 1.0]});// [{type: 'MultiPoint', coordinates: [[0.0, 1.0], [0.0, 2.0]]}].SDV.Util.Geojson.getGeoObjects({     type: 'MultiPoint',     coordinates: [[0.0, 1.0]]});// [{type: 'LineString', coordinates: [[0.0, 1.0], [0.0, 2.0]]}].SDV.Util.Geojson.getGeoObjects({     type: 'LineString',     coordinates: [[0.0, 1.0], [0.0, 2.0]]});// [{type: 'MultiLineString', coordinates: [[[0.0, 1.0], [0.0, 2.0]], [[0.0, 1.0], [0.0, 3.0]]]}].SDV.Util.Geojson.getGeoObjects({     type: 'MultiLineString',     coordinates: [[[0.0, 1.0], [0.0, 2.0]], [[0.0, 1.0], [0.0, 3.0]]]});// [{type: 'Polygon', coordinates: [[[1.0, 0.0], [2.0, 0.0], [2.0, 1.0]]]}].SDV.Util.Geojson.getGeoObjects({     type: 'Polygon',     coordinates: [[[1.0, 0.0], [2.0, 0.0], [2.0, 1.0]]]});// [{type: 'MultiPolygon', coordinates: [[[[1.0, 0.0], [2.0, 0.0], [2.0, 1.0]]], [[[3.0, 0.0], [4.0, 0.0], [4.0, 1.0]]]]}].SDV.Util.Geojson.getGeoObjects({     type: 'MultiPolygon',     coordinates: [[[[1.0, 0.0], [2.0, 0.0], [2.0, 1.0]]], [[[3.0, 0.0], [4.0, 0.0], [4.0, 1.0]]]]});// [{type: 'Point', coordinates: [0.0, 1.0]}, {type: 'Point', coordinates: [0.0, 2.0]}].SDV.Util.Geojson.getGeoObjects({     type: 'GeometryCollection',         geometries: [{             type: 'Point',             coordinates: [0.0, 1.0]         }, {             type: 'Point',             coordinates: [0.0, 2.0]         }]});// [{type: 'Feature', geometry: {type: 'Point', coordinates: [0.0, 1.0]}, properties: {property1: 1, property2: 2}}].SDV.Util.Geojson.getGeoObjects({     type: 'Feature',     geometry: {         type: 'Point',         coordinates: [0.0, 1.0]     },     properties: {         property1: 1,         property2: 2     }});// [{type: 'Feature', geometry: {type: 'Point', coordinates: [0.0, 1.0]}, properties: {property1: 1, property2: 2}},//  {type: 'Feature', geometry: {type: 'Point', coordinates: [0.0, 2.0]}, properties: {property1: '1', property2: '2'}}].SDV.Util.Geojson.getGeoObjects({     type: 'FeatureCollection',     features: [{         type: 'Feature',         geometry: {             type: 'Point',             coordinates: [0.0, 1.0]         },         properties: {             property1: 1,             property2: 2         }     }, {         type: 'Feature',         geometry: {             type: 'Point',             coordinates: [0.0, 2.0]         },         properties: {             property1: '1',             property2: '2'         }     }]});</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".isGeojson"><span class="type-signature">(static) </span>isGeojson<span class="signature">(obj)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Checks whether a given object is a <a href="http://geojson.org/geojson-spec.html">valid GeoJSON object</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Inspected object.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line2522">line 2522</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns true if inspected object is a valid GEOJSON object, otherwise returns false.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>SDV.Util.Geojson.isGeojson(); // false.SDV.Util.Geojson.isGeojson(null); // false.SDV.Util.Geojson.isGeojson('This is a string'); // false.SDV.Util.Geojson.isGeojson(1); // false.SDV.Util.Geojson.isGeojson([1]); // false.SDV.Util.Geojson.isGeojson(function(){return 1;}); // false.SDV.Util.Geojson.isGeojson({one: 1}); // false.SDV.Util.Geojson.isGeojson({type: 'Point', coordinates: [100.0, 0.0]}); // true.</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".validate"><span class="type-signature">(static) </span>validate<span class="signature">(geoJsonObject, allowedGeoObjectTypes<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {optionsValidationResult}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Checks whether a given object is a <a href="http://geojson.org/geojson-spec.html">valid GeoJSON object</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>geoJsonObject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Inspected object.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>allowedGeoObjectTypes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Allowed geoObjectTypes for inspected object (all types are allowed by default).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line2429">line 2429</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns object contains validation results.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">optionsValidationResult</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// It will return { isValid: false, message: 'Error. Required parameter 'geoJsonObject' is undefined.' }.SDV.Util.Geojson.validate();// It will return {//   isValid: false,//   message: 'Error. Parameter 'geoJsonObject' must be of type 'Object', but not of type '[object Null]'.'// }.SDV.Util.Geojson.validate(null); // Same logic for all types except plain object [object Object].// It will return {//   isValid: false,//   message: 'Error. Required parameter 'geoJsonObject.type' is undefined.'// }.SDV.Util.Geojson.validate({});// It will return {//   isValid: false,//   message: 'Error. Parameter 'geoJsonObject.type' must have one of the following values://       'Point', 'MultiPoint', 'LineString', 'MultiLineString', 'Polygon', 'MultiPolygon', 'GeometryCollection',//       'Feature', 'FeatureCollection'. This value is not allowed: 'MyType'.'// }.SDV.Util.Geojson.validate({type: 'MyType'});// It will return { isValid: false, message: 'Error. Required parameter 'geoObject.coordinates' is undefined.' }.SDV.Util.Geojson.validate({type: 'Point'});// It will return { isValid: true, message: '' }.SDV.Util.Geojson.validate({type: 'Point', coordinates: [100.0, 0.0]});</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Condition.html">Condition</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="Hsb.html">Hsb</a></li><li><a href="Hsl.html">Hsl</a></li><li><a href="Rgb.html">Rgb</a></li></ul><h3>Namespaces</h3><ul><li><a href="SDV.html">SDV</a></li><li><a href="SDV.Color.html">Color</a></li><li><a href="SDV.Color.Model.html">Model</a></li><li><a href="SDV.Color.Model.Hex.html">Hex</a></li><li><a href="SDV.Color.Model.Hsb.html">Hsb</a></li><li><a href="SDV.Color.Model.Hsl.html">Hsl</a></li><li><a href="SDV.Color.Model.Rgb.html">Rgb</a></li><li><a href="SDV.Condition.html">Condition</a></li><li><a href="SDV.Enumerable.html">Enumerable</a></li><li><a href="SDV.Localization.html">Localization</a></li><li><a href="SDV.Tool.html">Tool</a></li><li><a href="SDV.Util.html">Util</a></li><li><a href="SDV.Util.Ajax.html">Ajax</a></li><li><a href="SDV.Util.Array.html">Array</a></li><li><a href="SDV.Util.Boolean.html">Boolean</a></li><li><a href="SDV.Util.Function.html">Function</a></li><li><a href="SDV.Util.Geojson.html">Geojson</a></li><li><a href="SDV.Util.Json.html">Json</a></li><li><a href="SDV.Util.Number.html">Number</a></li><li><a href="SDV.Util.Object.html">Object</a></li><li><a href="SDV.Util.String.html">String</a></li><li><a href="SDV.Util.Validation.html">Validation</a></li><li><a href="SDV.Util.Xml.html">Xml</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.1</a> on Thu Jun 11 2015 06:01:21 GMT+0500 (RTZ 4 (зима))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

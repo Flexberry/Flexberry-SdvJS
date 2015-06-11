@@ -1,0 +1,1476 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/core/util/sdv.util.ajax.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/core/util/sdv.util.ajax.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">7.04% <small>(10 / 142)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 89)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">8.33% <small>(1 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">7.04% <small>(10 / 142)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/core/util/</a> &#187; sdv.util.ajax.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Base namespace for SDV.js library AJAX utils.
+ * All supporting AJAX utils are accessible through it.
+ * @namespace SDV.Util.Ajax
+ * @memberof SDV.Util
+ */
+SDV.Util.Ajax = {
+&nbsp;
+};
+&nbsp;
+// Using closure for SDV.Util.Ajax methods assigning, to hide some private members.
+(function() {
+    // Request allowed HTTP methods.
+    var makeRequestAllowedMethods = ['GET', 'POST', 'PUT', 'DELETE'];
+&nbsp;
+    // Request default options.
+    var makeRequestDefaultOptions = {
+        url: '',
+        method: 'GET',
+        timeout: 0,
+        async: true,
+        user: '',
+        password: '',
+        headers: {
+        },
+        requestContent: null,
+        requestContentType: 'application/x-www-form-urlencoded',
+        responseContentType: '',
+        onSuccess: <span class="fstat-no" title="function not covered" >function(data, xhr) {</span>
+<span class="cstat-no" title="statement not covered" >            console.log(xhr.responseText);</span>
+        },
+        onError: <span class="fstat-no" title="function not covered" >function(error, xhr) {</span>
+<span class="cstat-no" title="statement not covered" >            console.error(error.message);</span>
+        }
+    };
+&nbsp;
+    // Validates request options.
+    var makeRequestValidateOptions = <span class="fstat-no" title="function not covered" >function(options) {</span>
+<span class="cstat-no" title="statement not covered" >        var onErrorValidationOptions = {</span>
+            optionName: 'onError',
+            allowedTypes: ['Function'],
+            replaceWithDefaultIfUndefined: true,
+            replaceWithDefaultIfInvalid: true
+        };
+<span class="cstat-no" title="statement not covered" >        var onSuccessValidationOptions = {</span>
+            optionName: 'onSuccess',
+            isRequired: true,
+            allowedTypes: ['Function']
+        };
+<span class="cstat-no" title="statement not covered" >        var urlValidationOptions = {</span>
+            optionName: 'url',
+            isRequired: true,
+            allowedTypes: ['String']
+        };
+<span class="cstat-no" title="statement not covered" >        var methodValidationOptions = {</span>
+            optionName: 'method',
+            allowedTypes: ['String'],
+            allowedValues: makeRequestAllowedMethods,
+            replaceWithDefaultIfUndefined: true
+        };
+<span class="cstat-no" title="statement not covered" >        var userValidationOptions = {</span>
+            optionName: 'user',
+            allowedTypes: ['String'],
+            replaceWithDefaultIfUndefined: true
+        };
+<span class="cstat-no" title="statement not covered" >        var passwordValidationOptions = {</span>
+            optionName: 'password',
+            allowedTypes: ['String'],
+            replaceWithDefaultIfUndefined: true
+        };
+<span class="cstat-no" title="statement not covered" >        var timeoutValidationOptions = {</span>
+            optionName: 'timeout',
+            allowedTypes: ['Integer'],
+            minValue: 0,
+            minValueEqualityAllowed: true,
+            replaceWithDefaultIfUndefined: true
+        };
+<span class="cstat-no" title="statement not covered" >        var asyncValidationOptions = {</span>
+            optionName: 'async',
+            allowedTypes: ['Boolean'],
+            replaceWithDefaultIfUndefined: true
+        };
+<span class="cstat-no" title="statement not covered" >        var requestContentValidationOptions = {</span>
+            optionName: 'requestContent',
+            replaceWithDefaultIfUndefined: true
+        };
+<span class="cstat-no" title="statement not covered" >        var headersValidationOptions = {</span>
+            optionName: 'headers',
+            allowedTypes: ['Object'],
+            replaceWithDefaultIfUndefined: true
+        };
+<span class="cstat-no" title="statement not covered" >        var requestContentTypeValidationOptions = {</span>
+            optionName: 'requestContentType',
+            allowedTypes: ['String'],
+            replaceWithDefaultIfUndefined: true
+        };
+<span class="cstat-no" title="statement not covered" >        var responseContentTypeValidationOptions = {</span>
+            optionName: 'responseContentType',
+            allowedTypes: ['String'],
+            replaceWithDefaultIfUndefined: true
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var validationResult = SDV.Util.Validation.validateOptions([</span>
+                onErrorValidationOptions,
+                onSuccessValidationOptions,
+                urlValidationOptions,
+                methodValidationOptions,
+                userValidationOptions,
+                passwordValidationOptions,
+                timeoutValidationOptions,
+                asyncValidationOptions,
+                requestContentValidationOptions,
+                headersValidationOptions,
+                requestContentTypeValidationOptions,
+                responseContentTypeValidationOptions
+            ],
+            options,
+            makeRequestDefaultOptions);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    };
+&nbsp;
+    /**
+     * Checks if given url is cross domain.
+     * @memberof SDV.Util.Ajax
+     * @public
+     * @function
+     * @param {string} url Inspected url.
+     * @returns {boolean} Returns true if inspected url is cross domain, otherwise returns false.
+     *
+     * @example
+     * // Suppose that the current page has following address: http://localhost:63342/SpatialDataVisualization/pages/examples.html
+     * SDV.Util.Ajax.isUrlCrossDomain(); // false, because url is undefined.
+     * SDV.Util.Ajax.isUrlCrossDomain(null); // false, because url is not a string.
+     *
+     * // It will return false, because given url is a relative path to a file on the same domain.
+     * SDV.Util.Ajax.isUrlCrossDomain('data/myXmlFile.xml');
+     *
+     * // It will return true, because protocols are different.
+     * SDV.Util.Ajax.isUrlCrossDomain('https://localhost:63342/SpatialDataVisualization/pages/examples.html');
+     *
+     * // It will return true, because domains are different.
+     * SDV.Util.Ajax.isUrlCrossDomain('http://anotherhost:63342/SpatialDataVisualization/pages/examples.html');
+     *
+     * // It will return true, because ports are different.
+     * SDV.Util.Ajax.isUrlCrossDomain('http://localhost:8080/SpatialDataVisualization/pages/examples.html');
+     */
+    var isUrlCrossDomain = <span class="fstat-no" title="function not covered" >function(url) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.String.isString(url)) {</span>
+<span class="cstat-no" title="statement not covered" >            var currentLocation = window.location;</span>
+<span class="cstat-no" title="statement not covered" >            var givenUrl = document.createElement('a');</span>
+<span class="cstat-no" title="statement not covered" >            givenUrl.href = url;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (givenUrl.protocol !== '' &amp;&amp; currentLocation.protocol !== givenUrl.protocol) {</span>
+<span class="cstat-no" title="statement not covered" >                return true;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (givenUrl.hostname !== '' &amp;&amp; currentLocation.hostname !== givenUrl.hostname) {</span>
+<span class="cstat-no" title="statement not covered" >                return true;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (givenUrl.port !== '' &amp;&amp; currentLocation.port !== givenUrl.port) {</span>
+<span class="cstat-no" title="statement not covered" >                return true;</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+    };
+&nbsp;
+    // Creates new xhr object.
+    var getXhr = <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >        var xhr = null;</span>
+&nbsp;
+        // IE7 has XMLHttpRequest, but it can't request to local files,
+        // also in IE7/IE8 XMLHttpRequest can be disabled, so we need an ActiveXObject instead of XMLHttpRequest.
+<span class="cstat-no" title="statement not covered" >        var ie8OrLower =  !document.addEventListener || !document.querySelector;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (window.ActiveXObject &amp;&amp; (!window.XMLHttpRequest || ie8OrLower)) {</span>
+<span class="cstat-no" title="statement not covered" >            var activexRealizations = [</span>
+                'Msxml2.XMLHTTP.6.0',
+                'Msxml2.XMLHTTP.3.0',
+                'Msxml2.XMLHTTP',
+                'Microsoft.XMLHTTP'
+            ];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i=0, len=activexRealizations.length; i&lt;len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                try {</span>
+<span class="cstat-no" title="statement not covered" >                    xhr = new window.ActiveXObject(activexRealizations[i]);</span>
+                }
+                catch(e) {}
+            }
+        } else <span class="cstat-no" title="statement not covered" >if (window.XMLHttpRequest) {</span>
+<span class="cstat-no" title="statement not covered" >            xhr = new window.XMLHttpRequest();</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return xhr;</span>
+    };
+&nbsp;
+    /**
+     * Makes AJAX request.
+     * @memberof SDV.Util.Ajax
+     * @public
+     * @function
+     * @param {object} options Request options.
+     * @param {string} options.url Request URL (cross domain urls are supported even in IE8/IE9).
+     * @param {string} [options.method = 'GET'] Desirable HTTP-method for request
+     * (should be one of the followings: 'GET', 'POST', 'PUT', 'DELETE').
+     *
+     * @param {number} [options.timeout = 0] Request timeout (should be non-negative integer number).
+     * @param {boolean} [options.async = true] Flag: represents if request should be asynchronous or not.
+     * @param {string} [options.user = ''] User on whose behalf the request is made.
+     * @param {string} [options.password = ''] Password of those user on whose behalf the request is made
+     * @param {object} [options.headers] Object with request headers
+     * (for example { "MyHeader1": 'blah blah1', "MyHeader2": 'blah blah2' }).
+     *
+     * @param {*} [options.requestContent = null] Data that will be transferred to the given URL-address
+     * (for requests such as POST, PATH, or DELETE),
+     * or will be translated to string and object's properties will be added to the URL query parameters (for GET-request).
+     *
+     * @param {string} [options.requestContentType = 'application/x-www-form-urlencoded']
+     * Type of outgoing data (of RequestContent).
+     * See supported types {@link http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types|here}.
+     *
+     * @param {string} [options.responseContentType = ''] Desirable type of incoming data (for example, 'json', or 'document' for xml).
+     * @param {function} options.onSuccess Callback-function to handle successful request completion
+     * (Something like this: function(data, xhr) { console.log('Successful request! Received data: '); console.log(data); }).
+     *
+     * @param {function}[options.onError = function(error, xhr) { console.error(error.message); }]
+     * Callback-function to handle failed request.
+     *
+     * @returns {object} Returns XMLHttpRequest-object, or ActiveXObject (for old IE versions),
+     * or XDomainRequest-object (for IE8/IE9 if given file path is cross domain URL).
+     *
+     * @example
+     * // If server contains file 'myJsonFile.json' in the same path as the current page, and that file contains following data:
+     * // { "property1": 1 }, then onSuccess callback-function will receive that data and log it to console.
+     * // In the case of fail, error message will be logged to browser console.
+     * SDV.Util.Ajax.makeRequest({
+     *      url: 'myJsonFile.json',
+     *      method: 'GET',
+     *      onSuccess: function(data, xhr) { console.log(data); },
+     *      responseContentType: 'json'
+     * });
+     */
+    var makeRequest = <span class="fstat-no" title="function not covered" >function(options) {</span>
+        // Preprocess string request options.
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.String.isString(options.method)) {</span>
+<span class="cstat-no" title="statement not covered" >            options.method = SDV.Util.String.trim(options.method).toUpperCase();</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.String.isString(options.requestContentType)) {</span>
+<span class="cstat-no" title="statement not covered" >            options.requestContentType = SDV.Util.String.trim(options.requestContentType).toLowerCase();</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.String.isString(options.responseContentType)) {</span>
+<span class="cstat-no" title="statement not covered" >            options.responseContentType = SDV.Util.String.trim(options.responseContentType).toLowerCase();</span>
+        }
+&nbsp;
+        // Validate request options.
+<span class="cstat-no" title="statement not covered" >        var validationResult = makeRequestValidateOptions(options);</span>
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            options.onError({</span>
+                name: 'AjaxOptionsError',
+                message: validationResult.message
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+        // Define xhr.
+<span class="cstat-no" title="statement not covered" >        var xhr = getXhr();</span>
+<span class="cstat-no" title="statement not covered" >        if (!xhr) {</span>
+<span class="cstat-no" title="statement not covered" >            options.onError({</span>
+                name: 'AjaxOptionsError',
+                message: SDV.Localization.getResource('unsupportedFacilityError')([
+                    'XMLHttpRequest',
+                    'ActiveXObject(\'Msxml2.XMLHTTP\')',
+                    'ActiveXObject(\'Microsoft.XMLHTTP\')'
+                ])
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+        // Additional checks are needed for cross domain requests.
+<span class="cstat-no" title="statement not covered" >        var xhrSupportCrossDomain = typeof xhr.withCredentials !== 'undefined';</span>
+<span class="cstat-no" title="statement not covered" >        var xdr = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (isUrlCrossDomain(options.url) &amp;&amp; !xhrSupportCrossDomain) {</span>
+            // In IE8/IE9 XMLHttpRequest doesn't support cross domain requests,
+            // but we can use special XDomainRequest object.
+<span class="cstat-no" title="statement not covered" >            if (window.XDomainRequest) {</span>
+<span class="cstat-no" title="statement not covered" >                xdr = new window.XDomainRequest();</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                options.onError({</span>
+                    name: 'AjaxOptionsError',
+                    message: SDV.Localization.getResource('unsupportedFacilityError')('XDomainRequest')
+                });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return null;</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var requestObject = xdr || xhr;</span>
+<span class="cstat-no" title="statement not covered" >        var requestTimeout;</span>
+<span class="cstat-no" title="statement not covered" >        var errorUnhandled = true;</span>
+<span class="cstat-no" title="statement not covered" >        var requestFinished = false;</span>
+&nbsp;
+        // Method to stop timer if needed.
+<span class="cstat-no" title="statement not covered" >        var stopTimer = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (requestTimeout) {</span>
+<span class="cstat-no" title="statement not covered" >                clearTimeout(requestTimeout);</span>
+<span class="cstat-no" title="statement not covered" >                requestTimeout = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (!requestFinished) {</span>
+<span class="cstat-no" title="statement not covered" >                    requestFinished = true;</span>
+<span class="cstat-no" title="statement not covered" >                    requestObject.abort();</span>
+                }
+            }
+        };
+&nbsp;
+        // Request timeout handler.
+<span class="cstat-no" title="statement not covered" >        var handleTimeOut = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            errorUnhandled = false;</span>
+<span class="cstat-no" title="statement not covered" >            stopTimer();</span>
+<span class="cstat-no" title="statement not covered" >            options.onError({</span>
+                name: 'RequestTimeOut',
+                message: 'Request is timed out (' + options.timeout + 'ms).'
+            }, requestObject);
+        };
+&nbsp;
+        // Request error handler.
+<span class="cstat-no" title="statement not covered" >        var handleError = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            requestFinished = true;</span>
+<span class="cstat-no" title="statement not covered" >            stopTimer();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (errorUnhandled) {</span>
+<span class="cstat-no" title="statement not covered" >                options.onError({</span>
+                    name: requestObject.statusText || 'RequestError',
+                    message: (requestObject.status
+                        ? 'Error ' + (requestObject.status == 1223 ? 204 : requestObject.status) + ' '
+                        : 'Error. ') +
+                    (requestObject.statusText
+                        ? '(' + requestObject.statusText + '). '
+                        : '') +
+                    (requestObject.responseText
+                        ? requestObject.responseText
+                        : '')
+                }, requestObject);
+            }
+        };
+&nbsp;
+        // Request success handler.
+<span class="cstat-no" title="statement not covered" >        var handleSuccess = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            requestFinished = true;</span>
+<span class="cstat-no" title="statement not covered" >            stopTimer();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var data = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            try {</span>
+<span class="cstat-no" title="statement not covered" >                if (options.responseContentType === 'json') {</span>
+<span class="cstat-no" title="statement not covered" >                    data = SDV.Util.Json.parse(requestObject.responseText);</span>
+                } else <span class="cstat-no" title="statement not covered" >if (options.responseContentType === 'document') {</span>
+<span class="cstat-no" title="statement not covered" >                    data = SDV.Util.Xml.parse(requestObject.responseText);</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    data = requestObject.responseText;</span>
+                }
+            }
+            catch(e) {
+<span class="cstat-no" title="statement not covered" >                data = requestObject.responseText;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            options.onSuccess(data, requestObject);</span>
+        };
+&nbsp;
+        // Request onreadystatechange handler.
+<span class="cstat-no" title="statement not covered" >        var handleStateChange = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            try {</span>
+<span class="cstat-no" title="statement not covered" >                if (xhr.readyState === 4) {</span>
+<span class="cstat-no" title="statement not covered" >                    requestFinished = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (xhr.status === 200) {</span>
+<span class="cstat-no" title="statement not covered" >                        handleSuccess();</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        handleError();</span>
+                    }
+                }
+            }
+            catch(e) {
+<span class="cstat-no" title="statement not covered" >                errorUnhandled = false;</span>
+<span class="cstat-no" title="statement not covered" >                stopTimer();</span>
+<span class="cstat-no" title="statement not covered" >                options.onError(e, requestObject);</span>
+            }
+        };
+&nbsp;
+        // Add requestContent to url of GET request.
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.Object.isObject(options.requestContent) &amp;&amp; options.method === 'GET') {</span>
+<span class="cstat-no" title="statement not covered" >            if (options.url.indexOf('?') == -1) {</span>
+<span class="cstat-no" title="statement not covered" >                options.url = options.url + '?';</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var isNotFirstParameter = false;</span>
+<span class="cstat-no" title="statement not covered" >            for (var parameter in options.requestContent) {</span>
+<span class="cstat-no" title="statement not covered" >                if (options.requestContent.hasOwnProperty(parameter)) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (isNotFirstParameter) {</span>
+<span class="cstat-no" title="statement not covered" >                        options.url = options.url + '&amp;';</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    options.url = options.url + parameter + '=' + options.requestContent[parameter];</span>
+<span class="cstat-no" title="statement not covered" >                    isNotFirstParameter = true;</span>
+                }
+            }
+        }
+&nbsp;
+        // Set timeout if needed.
+<span class="cstat-no" title="statement not covered" >        if (options.timeout &gt; 0) {</span>
+            // Even if xhr.timeout property exists,
+            // xhr.onreadystatechange occurs before xhr.ontimeout, so timeout error handles twice.
+            // That's why we use manual SetTimeout/ClearTimeout instead of xhr.timeout.
+<span class="cstat-no" title="statement not covered" >            requestTimeout = setTimeout(handleTimeOut, options.timeout);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (requestObject === xhr) {</span>
+            // Here we use XMLHttpRequest object.
+&nbsp;
+            // XMLHttpRequest.onreadystatechange should not be used with synchronous requests.
+<span class="cstat-no" title="statement not covered" >            if (options.async) {</span>
+<span class="cstat-no" title="statement not covered" >                xhr.onreadystatechange = handleStateChange;</span>
+            }
+&nbsp;
+            // Prepare request.
+<span class="cstat-no" title="statement not covered" >            xhr.open(options.method, options.url, options.async, options.user, options.password);</span>
+&nbsp;
+            // Set request headers.
+<span class="cstat-no" title="statement not covered" >            for (var headerName in options.headers) {</span>
+<span class="cstat-no" title="statement not covered" >                if (options.headers.hasOwnProperty(headerName)) {</span>
+<span class="cstat-no" title="statement not covered" >                    xhr.setRequestHeader(headerName, options.headers[headerName]);</span>
+                }
+            }
+&nbsp;
+            // Finally send request.
+<span class="cstat-no" title="statement not covered" >            if(options.method === 'GET') {</span>
+<span class="cstat-no" title="statement not covered" >                xhr.send(null);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                xhr.setRequestHeader('Content-type', options.requestContentType);</span>
+<span class="cstat-no" title="statement not covered" >                xhr.send(options.requestContent)</span>
+            }
+&nbsp;
+            // Handle results of synchronous request after call to XMLHttpRequest.send(...).
+<span class="cstat-no" title="statement not covered" >            if (!options.async) {</span>
+<span class="cstat-no" title="statement not covered" >                handleStateChange();</span>
+            }
+        } else {
+            // Here we use XDomainRequest object.
+            // Note that requests through XDomainRequest are always asynchronous.
+<span class="cstat-no" title="statement not covered" >            xdr.open(options.method, options.url);</span>
+<span class="cstat-no" title="statement not covered" >            xdr.onload = handleSuccess;</span>
+<span class="cstat-no" title="statement not covered" >            xdr.onerror = handleError;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if(options.method === 'GET') {</span>
+<span class="cstat-no" title="statement not covered" >                xdr.send(null);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                xdr.send(options.requestContent)</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return requestObject;</span>
+    };
+&nbsp;
+    // Assign public methods to SDV.Util.Ajax namespace.
+    SDV.Util.Ajax.makeRequest = makeRequest;
+    SDV.Util.Ajax.isUrlCrossDomain = isUrlCrossDomain;
+})();</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Apr 30 2015 09:34:18 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

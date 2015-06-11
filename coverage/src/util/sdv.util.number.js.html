@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/util/sdv.util.number.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../prettify.css">
+
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/util/sdv.util.number.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">20% <small>(1 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">11.11% <small>(1 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">20% <small>(1 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">./src/util/</a> &#187; sdv.util.number.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Base namespace for SDV.js library number utils.
+ * All supporting number utils are accessible through it.
+ * @namespace SDV.Util.Number
+ * @memberof SDV.Util
+ */
+SDV.Util.Number = {
+&nbsp;
+    /**
+     * Checks whether a given object is a number.
+     * @memberof SDV.Util.Number
+     * @public
+     * @function
+     * @param {object} obj Inspected object.
+     * @returns {boolean} Returns true if inspected object is a number, otherwise returns false.
+     *
+     * @example
+     * SDV.Util.Number.isNumber(); // false.
+     * SDV.Util.Number.isNumber(null); // false.
+     * SDV.Util.Number.isNumber([1]); // false.
+     * SDV.Util.Number.isNumber({one: 1}); // false.
+     * SDV.Util.Number.isNumber(function(){return 1;}); // false.
+     * SDV.Util.Number.isNumber('This is a string'); // false.
+     * SDV.Util.Number.isNumber(1); // true.
+     * SDV.Util.Number.isNumber(0.12345); // true.
+     * SDV.Util.Number.isNumber(1.2345e+10); // true.
+     */
+    isNumber: <span class="fstat-no" title="function not covered" >function(obj) {</span>
+<span class="cstat-no" title="statement not covered" >        return (Object.prototype.toString.call(obj) === '[object Number]');</span>
+    },
+&nbsp;
+    /**
+     * Checks whether a given object is an integer number.
+     * @memberof SDV.Util.Number
+     * @public
+     * @function
+     * @param {object} obj Inspected object.
+     * @returns {boolean} Returns true if inspected object is an integer number, otherwise returns false.
+     *
+     * @example
+     * SDV.Util.Number.isInteger(); // false.
+     * SDV.Util.Number.isInteger(null); // false.
+     * SDV.Util.Number.isInteger([1]); // false.
+     * SDV.Util.Number.isInteger({one: 1}); // false.
+     * SDV.Util.Number.isInteger(function(){return 1;}); // false.
+     * SDV.Util.Number.isInteger('This is a string'); // false.
+     * SDV.Util.Number.isInteger(1); // true.
+     * SDV.Util.Number.isInteger(-1); // true.
+     * SDV.Util.Number.isInteger(0.12345); // false.
+     * SDV.Util.Number.isInteger(1.2345e+10); // false.
+     */
+    isInteger: window.Number.isInteger || <span class="fstat-no" title="function not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >function(obj) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return SDV.Util.Number.isNumber(obj) &amp;&amp; isFinite(obj) &amp;&amp; Math.floor(obj) === obj;</span>
+    },
+&nbsp;
+    /**
+     * Checks if given number is even.
+     * @memberof SDV.Util.Number
+     * @param {number} n inspected number.
+     * @returns {boolean} Returns true if inspected number is number and it is even, otherwise returns false.
+     *
+     * @example
+     * SDV.Util.Number.isEven();   // false.
+     * SDV.Util.Number.isEven({}); // false.
+     * SDV.Util.Number.isEven(5);  // false.
+     * SDV.Util.Number.isEven(4);  // true.
+     */
+    isEven: <span class="fstat-no" title="function not covered" >function (n) {</span>
+<span class="cstat-no" title="statement not covered" >        return SDV.Util.Number.isNumber(n) &amp;&amp; (n % 2 == 0);</span>
+    },
+&nbsp;
+    /**
+     * Checks if given number is odd.
+     * @memberof SDV.Util.Number
+     * @param {number} n inspected number.
+     * @returns {boolean} Returns true if inspected number is number and it is odd, otherwise returns false.
+     *
+     * @example
+     * SDV.Util.Number.isOdd();   // false.
+     * SDV.Util.Number.isOdd({}); // false.
+     * SDV.Util.Number.isOdd(4);  // false.
+     * SDV.Util.Number.isOdd(5);  // true.
+     */
+    isOdd: <span class="fstat-no" title="function not covered" >function(n) {</span>
+<span class="cstat-no" title="statement not covered" >        return SDV.Util.Number.isNumber(n) &amp;&amp; (Math.abs(n) % 2 == 1);</span>
+    }
+};</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 30 2015 02:12:28 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../sorter.js"></script>
+</body>
+</html>

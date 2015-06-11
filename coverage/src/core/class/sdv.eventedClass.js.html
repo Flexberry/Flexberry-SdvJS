@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/core/class/sdv.eventedClass.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/core/class/sdv.eventedClass.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">7.69% <small>(8 / 104)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 63)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">8.08% <small>(8 / 99)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/core/class/</a> &#187; sdv.eventedClass.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span></td><td class="text"><pre class="prettyprint lang-js">﻿SDV.EventedClass = SDV.Class.extend({
+    on: <span class="fstat-no" title="function not covered" >function (types, fn, context) {</span>
+        // Types can be a map of types/handlers.
+<span class="cstat-no" title="statement not covered" >        if (typeof types === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >            for (var type in types) {</span>
+                // We don't process space-separated events here for performance.
+<span class="cstat-no" title="statement not covered" >                this._on(type, types[type], fn);</span>
+            }
+&nbsp;
+        } else {
+            // Types can be a string of space-separated words.
+<span class="cstat-no" title="statement not covered" >            types = SDV.Util.String.getWords(types);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i = 0, len = types.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                this._on(types[i], fn, context);</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this;</span>
+    },
+&nbsp;
+    off: <span class="fstat-no" title="function not covered" >function (types, fn, context) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!types) {</span>
+            // Clear all listeners if called without arguments.
+<span class="cstat-no" title="statement not covered" >            delete this._events;</span>
+&nbsp;
+        } else <span class="cstat-no" title="statement not covered" >if (typeof types === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >            for (var type in types) {</span>
+<span class="cstat-no" title="statement not covered" >                this._off(type, types[type], fn);</span>
+            }
+        } else {
+<span class="cstat-no" title="statement not covered" >            types = SDV.Util.String.getWords(types);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i = 0, len = types.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                this._off(types[i], fn, context);</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this;</span>
+    },
+&nbsp;
+    // Attach listener (without syntactic sugar).
+    _on: <span class="fstat-no" title="function not covered" >function (type, fn, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var events = this._events = this._events || {};</span>
+<span class="cstat-no" title="statement not covered" >        var contextId = context &amp;&amp; context !== this &amp;&amp; SDV.Util.Object.uniqueId(context);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (contextId) {</span>
+            // Store listeners with custom context in a separate hash (if it has an id).
+            // Gives a major performance boost when firing and removing events (e.g. on map object).
+<span class="cstat-no" title="statement not covered" >            var indexKey = type + '_idx';</span>
+<span class="cstat-no" title="statement not covered" >            var indexLenKey = type + '_len';</span>
+<span class="cstat-no" title="statement not covered" >            var typeIndex = events[indexKey] = events[indexKey] || {};</span>
+<span class="cstat-no" title="statement not covered" >            var id = SDV.Util.Object.uniqueId(fn) + '_' + contextId;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!typeIndex[id]) {</span>
+<span class="cstat-no" title="statement not covered" >                typeIndex[id] = { fn: fn, ctx: context };</span>
+&nbsp;
+                // Keep track of the number of keys in the index to quickly check if it's empty.
+<span class="cstat-no" title="statement not covered" >                events[indexLenKey] = (events[indexLenKey] || 0) + 1;</span>
+            }
+&nbsp;
+        } else {
+            // individual layers mostly use "this" for context and don't fire listeners too often
+            // so simple array makes the memory footprint better while not degrading performance
+<span class="cstat-no" title="statement not covered" >            events[type] = events[type] || [];</span>
+<span class="cstat-no" title="statement not covered" >            events[type].push({ fn: fn });</span>
+        }
+    },
+&nbsp;
+    _off: <span class="fstat-no" title="function not covered" >function (type, fn, context) {</span>
+<span class="cstat-no" title="statement not covered" >        var events = this._events;</span>
+<span class="cstat-no" title="statement not covered" >        var indexKey = type + '_idx';</span>
+<span class="cstat-no" title="statement not covered" >        var indexLenKey = type + '_len';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!events) { <span class="cstat-no" title="statement not covered" >return; </span>}</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!fn) {</span>
+            // Clear all listeners for a type if function isn't specified.
+<span class="cstat-no" title="statement not covered" >            delete events[type];</span>
+<span class="cstat-no" title="statement not covered" >            delete events[indexKey];</span>
+<span class="cstat-no" title="statement not covered" >            delete events[indexLenKey];</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var contextId = context &amp;&amp; context !== this &amp;&amp; SDV.Util.Object.uniqueId(context);</span>
+<span class="cstat-no" title="statement not covered" >        var listeners, i, len, listener, id;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (contextId) {</span>
+<span class="cstat-no" title="statement not covered" >            id = SDV.Util.Object.uniqueId(fn) + '_' + contextId;</span>
+<span class="cstat-no" title="statement not covered" >            listeners = events[indexKey];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (listeners &amp;&amp; listeners[id]) {</span>
+<span class="cstat-no" title="statement not covered" >                listener = listeners[id];</span>
+<span class="cstat-no" title="statement not covered" >                delete listeners[id];</span>
+<span class="cstat-no" title="statement not covered" >                events[indexLenKey]--;</span>
+            }
+&nbsp;
+        } else {
+<span class="cstat-no" title="statement not covered" >            listeners = events[type];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (listeners) {</span>
+<span class="cstat-no" title="statement not covered" >                for (i = 0, len = listeners.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (listeners[i].fn === fn) {</span>
+<span class="cstat-no" title="statement not covered" >                        listener = listeners[i];</span>
+<span class="cstat-no" title="statement not covered" >                        listeners.splice(i, 1);</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                    }
+                }
+            }
+        }
+&nbsp;
+        // Set the removed listener to noop so that's not called if remove happens in fire.
+<span class="cstat-no" title="statement not covered" >        if (listener) {</span>
+<span class="cstat-no" title="statement not covered" >            listener.fn = <span class="fstat-no" title="function not covered" >function () {</span> <span class="cstat-no" title="statement not covered" >return false; </span>};</span>
+        }
+    },
+&nbsp;
+    fire: <span class="fstat-no" title="function not covered" >function (type, data, propagate) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!this.listens(type, propagate)) { <span class="cstat-no" title="statement not covered" >return this; </span>}</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var event = SDV.Util.Object.extend({}, data, { type: type, target: this });</span>
+<span class="cstat-no" title="statement not covered" >        var events = this._events;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (events) {</span>
+<span class="cstat-no" title="statement not covered" >            var typeIndex = events[type + '_idx'];</span>
+<span class="cstat-no" title="statement not covered" >            var i, len, listeners, id;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (events[type]) {</span>
+                // Make sure adding/removing listeners inside other listeners won't cause infinite loop.
+<span class="cstat-no" title="statement not covered" >                listeners = events[type].slice();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                for (i = 0, len = listeners.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                    listeners[i].fn.call(this, event);</span>
+                }
+            }
+&nbsp;
+            // Fire event for the context-indexed listeners as well.
+<span class="cstat-no" title="statement not covered" >            for (id in typeIndex) {</span>
+<span class="cstat-no" title="statement not covered" >                typeIndex[id].fn.call(typeIndex[id].ctx, event);</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (propagate) {</span>
+            // Propagate the event to parents (set with addEventParent).
+<span class="cstat-no" title="statement not covered" >            this._propagateEvent(event);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this;</span>
+    },
+&nbsp;
+    listens: <span class="fstat-no" title="function not covered" >function (type, propagate) {</span>
+<span class="cstat-no" title="statement not covered" >        var events = this._events;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (events &amp;&amp; (events[type] || events[type + '_len'])) { <span class="cstat-no" title="statement not covered" >return true; </span>}</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (propagate) {</span>
+            // Also check parents for listeners if event propagates.
+<span class="cstat-no" title="statement not covered" >            for (var id in this._eventParents) {</span>
+<span class="cstat-no" title="statement not covered" >                if (this._eventParents[id].listens(type, propagate)) { <span class="cstat-no" title="statement not covered" >return true; </span>}</span>
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+    },
+&nbsp;
+    once: <span class="fstat-no" title="function not covered" >function (types, fn, context) {</span>
+<span class="cstat-no" title="statement not covered" >        if (typeof types === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >            for (var type in types) {</span>
+<span class="cstat-no" title="statement not covered" >                this.once(type, types[type], fn);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return this;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var handler = SDV.Util.Function.bind(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            this.off(types, fn, context)</span>
+                .off(types, handler, context);
+        }, this);
+&nbsp;
+        // Add a listener that's executed once and removed after that.
+<span class="cstat-no" title="statement not covered" >        return this</span>
+            .on(types, fn, context)
+            .on(types, handler, context);
+    },
+&nbsp;
+    // Adds a parent to propagate events to (when you fire with true as a 3rd argument).
+    addEventParent: <span class="fstat-no" title="function not covered" >function (obj) {</span>
+<span class="cstat-no" title="statement not covered" >        this._eventParents = this._eventParents || {};</span>
+<span class="cstat-no" title="statement not covered" >        this._eventParents[SDV.Util.Object.uniqueId(obj)] = obj;</span>
+<span class="cstat-no" title="statement not covered" >        return this;</span>
+    },
+&nbsp;
+    removeEventParent: <span class="fstat-no" title="function not covered" >function (obj) {</span>
+<span class="cstat-no" title="statement not covered" >        if (this._eventParents) {</span>
+<span class="cstat-no" title="statement not covered" >            delete this._eventParents[SDV.Util.Object.uniqueId(obj)];</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return this;</span>
+    },
+&nbsp;
+    _propagateEvent: <span class="fstat-no" title="function not covered" >function (e) {</span>
+<span class="cstat-no" title="statement not covered" >        for (var id in this._eventParents) {</span>
+<span class="cstat-no" title="statement not covered" >            this._eventParents[id].fire(e.type, SDV.Util.Object.extend({ layer: e.target }, e), true);</span>
+        }
+    }
+});
+&nbsp;
+var proto = SDV.EventedClass.prototype;
+&nbsp;
+// Aliases. We should ditch those eventually.
+proto.addEventListener = proto.on;
+proto.removeEventListener = proto.clearAllEventListeners = proto.off;
+proto.addOneTimeEventListener = proto.once;
+proto.fireEvent = proto.fire;
+proto.hasEventListeners = proto.listens;
+&nbsp;
+SDV.Mixin = { Events: proto };</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Apr 30 2015 09:34:18 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

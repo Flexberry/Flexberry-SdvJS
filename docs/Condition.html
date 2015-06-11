@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Condition</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Condition</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        Condition
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="Condition"><span class="type-signature"></span>new Condition<span class="signature">(condition, conditionTemplates)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Constructs new instance of templated condition.Constructor is private, so use factory-method <a href="SDV.Condition.html#.create">SDV.Condition.create</a> to create an instance.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>condition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Templated condition.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>conditionTemplates</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;parsedTemplate></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Array of parsed templates contained inside condition.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line3940">line 3940</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".condition.getSatisfyingData"><span class="type-signature">(static) </span>condition.getSatisfyingData<span class="signature">(data, tillFirstSatisfaction)</span><span class="type-signature"> &rarr; {Array.&lt;object>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets an array of data objects satisfying to a given templated condition.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">Array.&lt;object></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Single data object or array of data objects,which needed to be checked for condition satisfaction.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tillFirstSatisfaction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Flag: indicates whether to stop checking,if some of data objects already satisfies given condition.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line4058">line 4058</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if given data is not an object or objects array.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns array of those data objects which satisfies condition.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array.&lt;object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var absolutelyTrueCondition = SDV.Condition.create('2 > 1');// It will return [{name: 'first'}, {name: 'second'}, {name: 'third'}],// because '2 > 1' is absolutely true regardless of data objects properties values.absolutelyTrueCondition.getSatisfyingData([{name: 'first'}, {name: 'second'}, {name: 'third'}]);var stStringsCondition = SDV.Condition.create('{{name}}.charAt(0) === \'f\' || {{name}}.charAt(0) === \'t\'');// It will return [{name: 'second'}, {name: 'third'}],stStringsCondition.getSatisfyingData([{name: 'first'}, {name: 'second'}, {name: 'third'}]);var absolutelyFalseCondition = SDV.Condition.create('2 &lt; 1');// It will return [],absolutelyFalseCondition.getSatisfyingData([{name: 'first'}, {name: 'second'}, {name: 'third'}]);</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".condition.isSatisfiedBy"><span class="type-signature">(static) </span>condition.isSatisfiedBy<span class="signature">(data)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Checks if given data satisfies condition.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+|
+
+<span class="param-type">Array.&lt;object></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Single data object or array of data objects,which needed to be checked for condition satisfaction.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line4136">line 4136</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Will throw an error if given data is not an object or objects array.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns true if some (even one) of given data objects satisfies given condition, otherwise returns false.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>// It will return true,// because '2 > 1' is absolutely true regardless of data objects properties values.SDV.Condition.create('2 > 1').isSatisfiedBy([{name: 'first'}, {name: 'second'}, {name: 'third'}]);// It will return true, because second object satisfies given condition,SDV.Condition.create('{{name}}.charAt(0) === \'f\' || {{name}}.charAt(0) === \'t\'')             .isSatisfiedBy([{name: 'first'}, {name: 'second'}, {name: 'third'}]);// It will return false, because names lengths of all given objects are greater or equals to 5, but not less then 5.SDV.Condition.create('{{name}}.length &lt; 5').isSatisfiedBy([{name: 'first'}, {name: 'second'}, {name: 'third'}]);</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Condition.html">Condition</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="Hsb.html">Hsb</a></li><li><a href="Hsl.html">Hsl</a></li><li><a href="Rgb.html">Rgb</a></li></ul><h3>Namespaces</h3><ul><li><a href="SDV.html">SDV</a></li><li><a href="SDV.Color.html">Color</a></li><li><a href="SDV.Color.Model.html">Model</a></li><li><a href="SDV.Color.Model.Hex.html">Hex</a></li><li><a href="SDV.Color.Model.Hsb.html">Hsb</a></li><li><a href="SDV.Color.Model.Hsl.html">Hsl</a></li><li><a href="SDV.Color.Model.Rgb.html">Rgb</a></li><li><a href="SDV.Condition.html">Condition</a></li><li><a href="SDV.Enumerable.html">Enumerable</a></li><li><a href="SDV.Localization.html">Localization</a></li><li><a href="SDV.Tool.html">Tool</a></li><li><a href="SDV.Util.html">Util</a></li><li><a href="SDV.Util.Ajax.html">Ajax</a></li><li><a href="SDV.Util.Array.html">Array</a></li><li><a href="SDV.Util.Boolean.html">Boolean</a></li><li><a href="SDV.Util.Function.html">Function</a></li><li><a href="SDV.Util.Geojson.html">Geojson</a></li><li><a href="SDV.Util.Json.html">Json</a></li><li><a href="SDV.Util.Number.html">Number</a></li><li><a href="SDV.Util.Object.html">Object</a></li><li><a href="SDV.Util.String.html">String</a></li><li><a href="SDV.Util.Validation.html">Validation</a></li><li><a href="SDV.Util.Xml.html">Xml</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.1</a> on Thu Jun 11 2015 06:01:20 GMT+0500 (RTZ 4 (зима))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

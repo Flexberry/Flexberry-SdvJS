@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/util/sdv.util.validation.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../prettify.css">
+
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/util/sdv.util.validation.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">1% <small>(1 / 100)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 68)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">1.01% <small>(1 / 99)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">./src/util/</a> &#187; sdv.util.validation.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Base namespace for SDV.js library validation utils.
+ * All supporting validation utils are accessible through it.
+ * @namespace SDV.Util.Validation
+ * @memberof SDV.Util
+ */
+SDV.Util.Validation = {
+    /**
+     * Option validation result.
+     * @typedef {object} optionValidationResult
+     * @property {boolean} isValid Flag: represents if checked option is valid.
+     * @property {boolean} isDefined Flag: represents if checked option is defined.
+     * @property {string} message Message with error information if option is invalid, otherwise it will be an empty string.
+     */
+&nbsp;
+    /**
+     * Options validation result.
+     * @typedef {object} optionsValidationResult
+     * @property {boolean} isValid Flag: represents if checked option is valid.
+     * @property {string} message Message with error information if option is invalid, otherwise it will be an empty string.
+     */
+&nbsp;
+    /**
+     * Options contains validation rules.
+     * @typedef {object} validationOptions
+     * @property {string} validationOptions.optionName Name of validating option.
+     * @property {string} [validationOptions.optionFullName] Full name of validating option
+     * (will be used instead of optionName in error message if option is invalid).
+     *
+     * @property {boolean} [validationOptions.isRequired = false] Flag: represents if given option is required.
+     * @property {string[]} [validationOptions.allowedTypes = []] Array of type names allowed for given option
+     * (allowed values for this option are following:
+     * 'String', 'Number', 'Integer', 'Boolean', 'Function', 'Object', 'Null', 'Array',
+     * 'StringArray' ,'NumberArray', 'IntegerArray', 'BooleanArray', 'FunctionArray', 'ObjectArray', 'ObjectOrNullArray').
+     * By default all types are allowed.
+     *
+     * @property {object[]} [validationOptions.allowedValues = []] Array of type values allowed for given option.
+     * By default all values are allowed.
+     *
+     * @property {number} [validationOptions.minValue] Minimum value allowed for given option (if option is numeric).
+     * @property {number} [validationOptions.maxValue] Maximum value allowed for given option (if option is numeric).
+     * @property {boolean} [validationOptions.minValueEqualityAllowed = false]
+     * Flag: represents if value equals to given minValue is allowed.
+     *
+     * @property {boolean} [validationOptions.maxValueEqualityAllowed = false]
+     * Flag: represents if value equals to given maxValue is allowed.
+     *
+     * @property {boolean} [validationOptions.replaceWithDefaultIfUndefined = false]
+     * Flag: represents if it is possible to replace undefined option with predefined default value.
+     *
+     * @property {boolean} [validationOptions.replaceWithDefaultIfInvalid = false]
+     * Flag: represents if it is possible to replace invalid option with predefined default value.
+     *
+     * @property {function} [validationOptions.postValidationMethod]
+     * Custom method to be executed at the end of the validation process.
+     * It should apply one parameter - value of the validation option,
+     * and should return {@link optionsValidationResult} as its result.
+     *
+     * @property {*} [validationOptions.postValidationMethodOptions]
+     * Options for postValidationMethod (method will be called with these options).
+     */
+&nbsp;
+    /** Validates given option with given validation rules.
+     * @memberof SDV.Util.Validation
+     * @public
+     * @function
+     *
+     * @param {validationOptions} validationOptions Options contains validation rules.
+     * @param {*} optionValue Value of validating option.
+     *
+     * @returns {optionValidationResult} Object contains validation results.
+     *
+     * @example
+     * var httpMethodValidationOptions = {
+     *      optionName: 'method',
+     *      isRequired: true,
+     *      allowedTypes: ['String'],
+     *      allowedValues: ['GET', 'POST', 'PUT', 'DELETE']
+     * };
+     *
+     * // It will return { isValid: false, isDefined: false, message: 'Error. Required parameter \'method\' is undefined.' }.
+     * SDV.Util.Validation.validateOption(httpMethodValidationOptions);
+     *
+     * // It will return {
+     * //    isValid: false,
+     * //    isDefined: true,
+     * //    message: 'Error. Parameter \'method\' must be of type \'[object String]\', but not of type \'[object Number]\'.'
+     * // }.
+     * SDV.Util.Validation.validateOption(httpMethodValidationOptions, 12345);
+     *
+     * // It will return {
+     * //    isValid: false,
+     * //    isDefined: true,
+     * //    message: 'Error. Parameter \'method\' must have one of the following values: ' +
+     * //             '\'GET\', \'POST\', \'PUT\', \'DELETE\'. This value is not allowed: \'MyHttpMethod\'.'
+     * // }.
+     * SDV.Util.Validation.validateOption(httpMethodValidationOptions, 'MyHttpMethod');
+     *
+     * // It will return { isValid: true, isDefined: true, message: '' }.
+     * SDV.Util.Validation.validateOption(httpMethodValidationOptions, 'GET');
+     */
+    validateOption: <span class="fstat-no" title="function not covered" >function(validationOptions, optionValue) {</span>
+<span class="cstat-no" title="statement not covered" >        var validationResult = {</span>
+            isValid: true,
+            isDefined: typeof optionValue !== 'undefined',
+            message: ''
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var optionNameForErrorMessage = validationOptions.optionFullName || validationOptions.optionName;</span>
+&nbsp;
+        // If validation options are undefined, then option is valid anyway.
+<span class="cstat-no" title="statement not covered" >        if (typeof validationOptions === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isDefined) {</span>
+            // Required option should be defined.
+<span class="cstat-no" title="statement not covered" >            if (validationOptions.isRequired) {</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.message = SDV.Localization</span>
+                    .getResource('missingRequiredParameterError')(optionNameForErrorMessage);
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.Array.isArray(validationOptions.allowedTypes)) {</span>
+            // Defined option should have a valid type.
+<span class="cstat-no" title="statement not covered" >            var typeIsValid = true;</span>
+<span class="cstat-no" title="statement not covered" >            var typeErrorMessage = '';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var isTypedArray = <span class="fstat-no" title="function not covered" >function(obj, typeValidationFunction) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (!SDV.Util.Array.isArray(obj)) {</span>
+<span class="cstat-no" title="statement not covered" >                    return false;</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                for (var i = 0, len = obj.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (!typeValidationFunction(obj[i])) {</span>
+<span class="cstat-no" title="statement not covered" >                        return false;</span>
+                    }
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return true;</span>
+            };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var typeValidationFunction = {</span>
+                'String': SDV.Util.String.isString,
+                'Number': SDV.Util.Number.isNumber,
+                'Integer': SDV.Util.Number.isInteger,
+                'Boolean': SDV.Util.Boolean.isBoolean,
+                'Function': SDV.Util.Function.isFunction,
+                'Array': SDV.Util.Array.isArray,
+                'Object': SDV.Util.Object.isObject,
+                'Null': <span class="fstat-no" title="function not covered" >function(obj) {</span> <span class="cstat-no" title="statement not covered" >return SDV.Util.Object.isObject(obj, true); </span>},
+                'StringArray': <span class="fstat-no" title="function not covered" >function(obj) {</span> <span class="cstat-no" title="statement not covered" >return isTypedArray(obj, SDV.Util.String.isString); </span>},
+                'NumberArray': <span class="fstat-no" title="function not covered" >function(obj) {</span> <span class="cstat-no" title="statement not covered" >return isTypedArray(obj, SDV.Util.Number.isNumber); </span>},
+                'IntegerArray': <span class="fstat-no" title="function not covered" >function(obj) {</span> <span class="cstat-no" title="statement not covered" >return isTypedArray(obj, SDV.Util.Number.isInteger); </span>},
+                'BooleanArray': <span class="fstat-no" title="function not covered" >function(obj) {</span> <span class="cstat-no" title="statement not covered" >return isTypedArray(obj, SDV.Util.Boolean.isBoolean); </span>},
+                'FunctionArray': <span class="fstat-no" title="function not covered" >function(obj) {</span> <span class="cstat-no" title="statement not covered" >return isTypedArray(obj, SDV.Util.Function.isFunction); </span>},
+                'ObjectArray': <span class="fstat-no" title="function not covered" >function(obj) {</span> <span class="cstat-no" title="statement not covered" >return isTypedArray(obj, SDV.Util.Object.isObject); </span>},
+                'ObjectOrNullArray': <span class="fstat-no" title="function not covered" >function(obj) {</span>
+<span class="cstat-no" title="statement not covered" >                    return isTypedArray(obj, <span class="fstat-no" title="function not covered" >function(obj) {</span> <span class="cstat-no" title="statement not covered" >return SDV.Util.Object.isObject(obj, true); </span>});</span>
+                }
+            };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (var i=0, len=validationOptions.allowedTypes.length; i&lt;len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                var typeName = validationOptions.allowedTypes[i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (typeValidationFunction.hasOwnProperty(typeName)) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (typeValidationFunction[typeName](optionValue)) {</span>
+<span class="cstat-no" title="statement not covered" >                        typeIsValid = true;</span>
+<span class="cstat-no" title="statement not covered" >                        typeErrorMessage = '';</span>
+<span class="cstat-no" title="statement not covered" >                        break;</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        typeIsValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                        typeErrorMessage = SDV.Localization.getResource('wrongParameterTypeError')({</span>
+                            parameterName: optionNameForErrorMessage,
+                            actualValue: optionValue,
+                            expectedType: validationOptions.allowedTypes
+                        });
+                    }
+                } else {
+<span class="cstat-no" title="statement not covered" >                    typeIsValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                    typeErrorMessage = SDV.Localization.getResource('wrongParameterValueError')({</span>
+                        parameterName: 'validationOptions.allowedTypes[' + i + ']',
+                        actualValue: typeName,
+                        allowedValues: SDV.Util.Object.getPropertiesNames(typeValidationFunction)
+                    });
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!typeIsValid) {</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.message = typeErrorMessage;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return validationResult;</span>
+            }
+        }
+&nbsp;
+        // Defined option should have a valid value.
+<span class="cstat-no" title="statement not covered" >        var valueIsValid = true;</span>
+<span class="cstat-no" title="statement not covered" >        var valueErrorMessage = '';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.Number.isNumber(optionValue)) {</span>
+<span class="cstat-no" title="statement not covered" >            if (typeof validationOptions.minValue != 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >                valueIsValid = validationOptions.minValueEqualityAllowed</span>
+                    ? optionValue &gt;= validationOptions.minValue
+                    : optionValue &gt; validationOptions.minValue;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (!valueIsValid) {</span>
+<span class="cstat-no" title="statement not covered" >                    valueErrorMessage = SDV.Localization.getResource('wrongParameterValueError')({</span>
+                        parameterName: optionNameForErrorMessage,
+                        actualValue: optionValue,
+                        allowedValues: (validationOptions.minValueEqualityAllowed ? '&gt;= ' : '&gt; ') + validationOptions.minValue
+                    });
+<span class="cstat-no" title="statement not covered" >                    validationResult.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                    validationResult.message = valueErrorMessage;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    return validationResult;</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (typeof validationOptions.maxValue != 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >                valueIsValid = validationOptions.maxValueEqualityAllowed</span>
+                    ? optionValue &lt;= validationOptions.maxValue
+                    : optionValue &lt; validationOptions.maxValue;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (!valueIsValid) {</span>
+<span class="cstat-no" title="statement not covered" >                    valueErrorMessage = SDV.Localization.getResource('wrongParameterValueError')({</span>
+                        parameterName: optionNameForErrorMessage,
+                        actualValue: optionValue,
+                        allowedValues: (validationOptions.maxValueEqualityAllowed ? '&lt;= ' : '&lt; ') + validationOptions.maxValue
+                    });
+<span class="cstat-no" title="statement not covered" >                    validationResult.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                    validationResult.message = valueErrorMessage;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    return validationResult;</span>
+                }
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.Array.isArray(validationOptions.allowedValues)) {</span>
+<span class="cstat-no" title="statement not covered" >            var allowedValuesLength = validationOptions.allowedValues.length;</span>
+<span class="cstat-no" title="statement not covered" >            valueIsValid = (allowedValuesLength &gt; 0 &amp;&amp; SDV.Util.Array.contains(validationOptions.allowedValues, optionValue))</span>
+                || allowedValuesLength == 0;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!valueIsValid) {</span>
+<span class="cstat-no" title="statement not covered" >                valueErrorMessage = SDV.Localization.getResource('wrongParameterValueError')({</span>
+                    parameterName: optionNameForErrorMessage,
+                    actualValue: optionValue,
+                    allowedValues: validationOptions.allowedValues
+                });
+<span class="cstat-no" title="statement not covered" >                validationResult.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.message = valueErrorMessage;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return validationResult;</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.Function.isFunction(validationOptions.postValidationMethod)) {</span>
+<span class="cstat-no" title="statement not covered" >            var customValidationResult = validationOptions.postValidationMethod(validationOptions.postValidationMethodOptions);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (SDV.Util.Object.isObject(customValidationResult)) {</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.isValid = customValidationResult.isValid === true;</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.message = customValidationResult.message || '';</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    },
+&nbsp;
+    /** Validates given options-object with given set (array) of validation rules.
+     * Unlike the {@link SDV.Util.Validation.validateOption} method,
+     * this method allows to replace wrong or undefined options with given default values.
+     * @memberof SDV.Util.Validation
+     * @public
+     * @function
+     *
+     * @param {validationOptions[]} validationOptions Array contains validation rules for each option.
+     * @param {object} options Validating options.
+     * @param {object} defaults Options default values.
+     *
+     * @returns {optionsValidationResult} Object contains validation results.
+     *
+     * @example
+     * // Option 'method' is required, but 'timeout' is not.
+     * var myValidationOptions = [{
+     *      optionName: 'method',
+     *      isRequired: true,
+     *      allowedTypes: ['String'],
+     *      allowedValues: ['GET', 'POST', 'PUT', 'DELETE']
+     * }, {
+     *      optionName: 'timeout',
+     *      allowedTypes: ['Integer'],
+     *      minValue: 0,
+     *      minValueEqualityAllowed = true,
+     *      replaceWithDefaultIfUndefined = true
+     * }];
+     *
+     * // It will return { isValid: false, message: 'Error. Required parameter \'method\' is undefined.' }.
+     * SDV.Util.Validation.validateOptions(myValidationOptions);
+     *
+     * // It will return {
+     * //    isValid: false,
+     * //    message: 'Error. Parameter \'method\' must be of type \'[object String]\', but not of type \'[object Number]\'.'
+     * // }.
+     * var options = { method: 12345 };
+     * SDV.Util.Validation.validateOptions(myValidationOptions, options);
+     *
+     * // It will return {
+     * //    isValid: false,
+     * //    message: 'Error. Parameter \'method\' must have one of the following values: ' +
+     * //             '\'GET\', \'POST\', \'PUT\', \'DELETE\'. This value is not allowed: \'MyHttpMethod\'.'
+     * // }.
+     * var options = { method: 'MyHttpMethod' };
+     * SDV.Util.Validation.validateOptions(myValidationOptions, options);
+     *
+     * // It will return { isValid: true, message: '' }. And options will be equal to: { method: 'MyHttpMethod', timeout: 0 }.
+     * var options = { method: 'GET' };
+     * var defaults = { timeout: 0 };
+     * SDV.Util.Validation.validateOptions(myValidationOptions, options, defaults);
+     *
+     * // It will return {
+     * //    isValid: false,
+     * //    message: 'Error. Parameter \'timeout\' must be of type \'[object Integer]\', but not of type \'[object Number]\'.'
+     * // }.
+     * var options = { method: 'GET', timeout: 2.5 };
+     * SDV.Util.Validation.validateOptions(myValidationOptions, options);
+     *
+     * // It will return {
+     * //    isValid: false,
+     * //    message: 'Error. Parameter \'method\' must have one of the following values: &gt;= 0'. This value is not allowed: -1.'
+     * // }.
+     * var options = { method: 'GET', timeout: -1 };
+     * SDV.Util.Validation.s(myValidationOptions, options);
+     *
+     * // It will return { isValid: true, message: '' }.
+     * var options = { method: 'GET', timeout: 1000 };
+     * SDV.Util.Validation.validateOptions(myValidationOptions, options);
+     */
+    validateOptions: <span class="fstat-no" title="function not covered" >function(validationOptions, options, defaults) {</span>
+<span class="cstat-no" title="statement not covered" >        var validationResult = {</span>
+            isValid: true,
+            message: ''
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (typeof validationOptions === 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        options = options || {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!SDV.Util.Object.isObject(options)) {</span>
+<span class="cstat-no" title="statement not covered" >            validationResult.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >            validationResult.message = SDV.Localization.getResource('wrongParameterTypeError')({</span>
+                parameterName: 'options',
+                actualValue: options,
+                expectedType: '[object Object]'
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var defaultsAreDefined = typeof defaults !== 'undefined';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        for (var i=0, len=validationOptions.length; i&lt;len; i++) {</span>
+            // Current validation rule.
+<span class="cstat-no" title="statement not covered" >            var currentValidationOption = validationOptions[i];</span>
+&nbsp;
+            // Validation result for current option.
+<span class="cstat-no" title="statement not covered" >            var currentValidationResult = SDV.Util.Validation.validateOption(</span>
+                currentValidationOption,
+                options[currentValidationOption.optionName]);
+&nbsp;
+            // We should validate given default value, and try to replace wrong or undefined option with it (if needed of course).
+<span class="cstat-no" title="statement not covered" >            if (defaultsAreDefined &amp;&amp; ((currentValidationOption.replaceWithDefaultIfInvalid &amp;&amp; !currentValidationResult.isValid)</span>
+                || (currentValidationOption.replaceWithDefaultIfUndefined &amp;&amp; !currentValidationResult.isDefined))) {
+<span class="cstat-no" title="statement not covered" >                var currentDefaultValueValidationResult = SDV.Util.Validation.validateOption(</span>
+                    currentValidationOption,
+                    defaults[currentValidationOption.optionName]);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (currentDefaultValueValidationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >                    options[currentValidationOption.optionName] = defaults[currentValidationOption.optionName];</span>
+<span class="cstat-no" title="statement not covered" >                    currentValidationResult.isValid = true;</span>
+<span class="cstat-no" title="statement not covered" >                    currentValidationResult.isDefined = typeof options[currentValidationOption.optionName] !== 'undefined';</span>
+                } else {
+                    // Default value for current option is wrong, so current option is wrong too.
+<span class="cstat-no" title="statement not covered" >                    validationResult = currentDefaultValueValidationResult;</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!currentValidationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                validationResult.message = currentValidationResult.message;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return validationResult;</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    }
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 30 2015 02:12:28 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/core/util/sdv.util.json.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/core/util/sdv.util.json.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">3.23% <small>(1 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">7.69% <small>(2 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">3.23% <small>(1 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/core/util/</a> &#187; sdv.util.json.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Base namespace for SDV.js library JSON utils.
+ * All supporting JSON utils are accessible through it.
+ * @namespace SDV.Util.Json
+ * @memberof SDV.Util
+ */
+SDV.Util.Json = {
+    /**
+     * Transforms given string into JSON object.
+     * @memberof SDV.Util.Json
+     * @public
+     * @function
+     * @throws {SyntaxError} Throws a SyntaxError exception if the given string contains invalid JSON.
+     * @param {string} jsonString String, contains stringed JSON-information.
+     * @returns {object} Returns JSON-object, if given string contains valid stringed JSON.
+     *
+     * @example
+     * SDV.Util.Json.parse(); // Will throw SyntaxError.
+     * SDV.Util.Json.parse(''); // Will throw SyntaxError.
+     *
+     * // Will throw SyntaxError, because in valid stringed JSON properties names must be enclosed in double quotes.
+     * SDV.Util.Json.parse('{ property1: 1 }');
+     *
+     * SDV.Util.Json.parse('{ \"property1\": 1 }'); // Will return following JSON-object: { property1: 1 }.
+     */
+    parse: window.JSON ? window.JSON.parse : <span class="fstat-no" title="function not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >function (jsonString) {</span></span>
+<span class="cstat-no" title="statement not covered" >        return eval('(' + jsonString + ')');</span>
+    },
+&nbsp;
+    /**
+     * Transforms given JSON-object into string, contains stringed representation of given object.
+     * Note, that all symbol-keyed properties will be completely ignored.
+     * @memberof SDV.Util.Json
+     * @public
+     * @function
+     * @param {object} value JSON-object being converted to a string.
+     * @returns {string} Returns string, contains stringed representation of given JSON-object.
+     *
+     * @example
+     * SDV.Util.Json.stringify({});                  // '{}'
+     * SDV.Util.Json.stringify(true);                // 'true'
+     * SDV.Util.Json.stringify('foo');               // '"foo"'
+     * SDV.Util.Json.stringify([1, 'false', false]); // '[1,"false",false]'
+     * SDV.Util.Json.stringify({ x: 5 });            // '{"x":5}'
+     * SDV.Util.Json.stringify({ x: 5, y: 6 });      // '{"x":5,"y":6}' or '{"y":6,"x":5}'
+     *
+     * // Symbol-keyed properties will be completely ignored:
+     * SDV.Util.Json.stringify({ x: undefined, y: Object, z: Symbol('') }); // '{}'
+     */
+    stringify: window.JSON ? window.JSON.stringify : <span class="branch-1 cbranch-no" title="branch not covered" >(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        var toString = window.Object.prototype.toString;</span>
+<span class="cstat-no" title="statement not covered" >        var isArray = SDV.Util.Array.isArray;</span>
+<span class="cstat-no" title="statement not covered" >        var escMap = {'"': '\\"', '\\': '\\\\', '\b': '\\b', '\f': '\\f', '\n': '\\n', '\r': '\\r', '\t': '\\t'};</span>
+<span class="cstat-no" title="statement not covered" >        var escFunc = <span class="fstat-no" title="function not covered" >function (m) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return escMap[m] || '\\u' + (m.charCodeAt(0) + 0x10000).toString(16).substr(1);</span>
+        };
+<span class="cstat-no" title="statement not covered" >        var escRE = /[\\"\u0000-\u001F\u2028\u2029]/g;</span>
+<span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >function stringify(value) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (value == null) {</span>
+<span class="cstat-no" title="statement not covered" >                return 'null';</span>
+            } else <span class="cstat-no" title="statement not covered" >if (typeof value === 'number') {</span>
+<span class="cstat-no" title="statement not covered" >                return window.isFinite(value) ? value.toString() : 'null';</span>
+            } else <span class="cstat-no" title="statement not covered" >if (typeof value === 'boolean') {</span>
+<span class="cstat-no" title="statement not covered" >                return value.toString();</span>
+            } else <span class="cstat-no" title="statement not covered" >if (typeof value === 'object') {</span>
+<span class="cstat-no" title="statement not covered" >                if (typeof value.toJSON === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >                    return stringify(value.toJSON());</span>
+                } else <span class="cstat-no" title="statement not covered" >if (isArray(value)) {</span>
+<span class="cstat-no" title="statement not covered" >                    var res = '[';</span>
+<span class="cstat-no" title="statement not covered" >                    for (var i = 0; i &lt; value.length; i++)</span>
+<span class="cstat-no" title="statement not covered" >                        res += (i ? ', ' : '') + stringify(value[i]);</span>
+<span class="cstat-no" title="statement not covered" >                    return res + ']';</span>
+                } else <span class="cstat-no" title="statement not covered" >if (toString.call(value) === '[object Object]') {</span>
+<span class="cstat-no" title="statement not covered" >                    var tmp = [];</span>
+<span class="cstat-no" title="statement not covered" >                    for (var k in value) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (value.hasOwnProperty(k))</span>
+<span class="cstat-no" title="statement not covered" >                            tmp.push(stringify(k) + ': ' + stringify(value[k]));</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    return '{' + tmp.join(', ') + '}';</span>
+                }
+            }
+<span class="cstat-no" title="statement not covered" >            return '"' + value.toString().replace(escRE, escFunc) + '"';</span>
+        };
+    })(),
+&nbsp;
+    /**
+     * Makes a GET-request to address specified in 'filePath'-option, and receives JSON-object (in a case of success).
+     * In case of invalid data in file, data will be received as string instead of JSON-object.
+     * @memberof SDV.Util.Json
+     * @public
+     * @function
+     * @param {object} options Request options.
+     * @param {string} options.filePath Path to target JSON-file (for most browsers it could be even cross domain URL).
+     * @param {boolean} [options.async = true] Flag: represents if request should be asynchronous or not.
+     * @param {number} [options.timeout = 0] Request timeout (Non negative integer value).
+     * @param {function} options.onSuccess Callback-function that handles successful request completion.
+     * @param {function} [options.onError = function(error, xhr) { console.error(error.message); }]
+     * Callback-function that handles failed request.
+     *
+     * @returns {object} Returns XMLHttpRequest-object, or ActiveXObject (for old IE versions),
+     * or XDomainRequest-object (for IE8/IE9 if given file path is cross domain URL).
+     *
+     * @example
+     * // If server contains file 'myJsonFile.json' in the same path as the current page, and that file contains following data:
+     * // { "property1": 1 }, then onSuccess callback-function will receive that data and log it to console.
+     * // In the case of fail, error message will be logged to browser console.
+     * SDV.Util.Json.getFromFile({ filePath: 'myJsonFile.json', onSuccess: function(data, xhr) { console.log(data); } });
+     */
+    getFromFile: <span class="fstat-no" title="function not covered" >function(options) {</span>
+<span class="cstat-no" title="statement not covered" >        return SDV.Util.Ajax.makeRequest({</span>
+            url: options.filePath,
+            method: 'GET',
+            async: options.async,
+            timeout: options.timeout,
+            responseContentType: 'json',
+            onSuccess: options.onSuccess,
+            onError: options.onError
+        });
+    }
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Apr 30 2015 09:34:18 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

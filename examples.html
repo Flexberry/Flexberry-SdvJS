@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>SDV Examples</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+
+    <style></style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="headerSection" class="section">
+            <div id="aboveHeader"></div>
+            <div id="header">
+                <div id="headerContent">
+                    <a href="index.html">
+                        <div id="headerLogo"></div>
+                    </a>
+                    <div class="headerDelimiter"></div>
+                    <div id="headerMenu">
+
+                        <a id="overviewMenuItem" class="headerMenuItem " href="index.html">Overview</a>
+                        <a id="examplesMenuItem" class="headerMenuItem current" href="examples.html">Examples</a>
+                        <a id="documentationMenuItem" class="headerMenuItem " href="docs.html">API Documentation</a>
+                        <a id="testsMenuItem" class="headerMenuItem " href="tests.html">Unit tests</a>
+                        <a id="downloadsMenuItem" class="headerMenuItem " href="downloads.html">Downloads</a>
+
+                    </div>
+                    <div class="headerDelimiter"></div>
+                    <a href="https://github.com/Flexberry/Flexberry-SdvJS" target="_blank">
+                        <div id="headerGitHubIcon" title="GitHub repository"></div>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div id="underHeader"></div>
+        </div>
+        <div id="contentSection" class="section">
+            <div id="contentContainer">
+                <div id="contentBorderLeft" class="contentBorder"></div>
+                <div id="content">
+                    <div id="contentUpperDelimiter" style="height: 10px; width: 100%;"></div>
+
+                    <div id="contentLowerDelimiter" style="height: 10px; width: 100%;"></div>
+                </div>
+                <div id="contentBorderRight" class="contentBorder"></div>
+            </div>
+        </div>
+        <div id="footerSection" class="section">
+            <div id="footer">
+                <div id='footerText'>
+                    <a href='index.html'>SDV.JS 2015 | SPATIAL DATA VISUALIZATION LIBRARY</a>
+                    <br>
+                    <div class="highlightedLinks">
+                        MAINTAINED BY <a href="https://github.com/Flexberry" target="_blank">FLEXBERRY</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script type="text/javascript" src="scripts/sdv/sdv.js"></script>
+    <script type="text/javascript" src="scripts/sdv/leaflet.sdv.js"></script>
+
+
+    <script type="text/javascript">
+        // Map initial position.
+        var mapStartPosition = [57.9765767849, 56.1710143089];
+
+        // Initialize map.
+        var map = new L.Map('content').setView(mapStartPosition, 17);
+
+        // OpenStreetMap layer.
+        var osmLayer = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        SDV.Util.Json.getFromFile({
+            filePath: 'data/permMicrodistricts.json',
+            onSuccess: function(permMicrodistrictsGeoJson, xhr) {
+                var permMicrodistrictsLayer = L.SDV.choropleth({
+                    data: permMicrodistrictsGeoJson,
+                    mode: 'random'
+                }, {
+                    onEachFeature: function(feature, layer) {
+                        layer.bindPopup('<div style=\"color: black; font-size: 10pt;\">' +
+                            'Микрорайон \"' + feature.properties.name + '\"' +
+                            ' (\"' + SDV.Util.String.transliterateCyrillicToLatin(feature.properties.name) + '\" microdistrict).<br />' +
+                            'Площадь: ' + feature.properties.area + ' м&sup2' + ' (area: ' + feature.properties.area + ' m&sup2).</div>');
+                    }
+                }).addTo(map);
+
+                if (permMicrodistrictsLayer.getLayers().length > 0) {
+                    map.fitBounds(permMicrodistrictsLayer.getBounds());
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Namespace: Tool</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Namespace: Tool</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+            <span class="ancestors"><a href="SDV.html">SDV</a>.</span>
+        
+        Tool
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Base namespace for SDV.js library spatial data analysis tools.All supporting analysis tools are accessible through it.</div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line7100">line 7100</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".base"><span class="type-signature">(static) </span>base<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Base and abstract analysis tool. Other tools must be a base tool extensions.
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line7306">line 7306</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".choropleth"><span class="type-signature">(static) </span>choropleth<span class="signature">(options)</span><span class="type-signature"> &rarr; {object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Analysis by categories tool (choropleth tool).It can apply GeoJSON data and divide its features into several categories, according to the specified mode and mode options.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Categorization options.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">GeoJSON data (only 'Feature' and 'FeaturesCollection' types are allowed for choropleth tool).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cloneData</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    false
+                
+                </td>
+            
+
+            <td class="description last">Flag: indicates whether to clone given data before recording analysis results into it.If cloneData flag is true, then given data will be cloned before preprocessing, processing, and recording of the results,otherwise same data object will be used, and results will be recorded into features of the same object.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>preprocessor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Method of data preprocessing.This method will be called for each feature in given data, method applies three arguments:feature (current feature),featureIndex (index of current feature in whole features array),featuresArray (array of all features).This method could be used, for example, to compute some additional properties and push them inside features(distance from each feature to some dynamicly defined point is a good example of usage).To break preprocessing (to stop iteration over features) preprocessing method must return exactly false value.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>mode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Name of desirable mode, for example 'random', or 'manual'.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>modeOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">Specific mode options.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line7340">line 7340</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns similar (or even same) GeoJSON data object, in which every feature contains following property:feature.properties.sdv.choropleth = {category: '', style: {}}.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Condition.html">Condition</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="Hsb.html">Hsb</a></li><li><a href="Hsl.html">Hsl</a></li><li><a href="Rgb.html">Rgb</a></li></ul><h3>Namespaces</h3><ul><li><a href="SDV.html">SDV</a></li><li><a href="SDV.Color.html">Color</a></li><li><a href="SDV.Color.Model.html">Model</a></li><li><a href="SDV.Color.Model.Hex.html">Hex</a></li><li><a href="SDV.Color.Model.Hsb.html">Hsb</a></li><li><a href="SDV.Color.Model.Hsl.html">Hsl</a></li><li><a href="SDV.Color.Model.Rgb.html">Rgb</a></li><li><a href="SDV.Condition.html">Condition</a></li><li><a href="SDV.Enumerable.html">Enumerable</a></li><li><a href="SDV.Localization.html">Localization</a></li><li><a href="SDV.Tool.html">Tool</a></li><li><a href="SDV.Util.html">Util</a></li><li><a href="SDV.Util.Ajax.html">Ajax</a></li><li><a href="SDV.Util.Array.html">Array</a></li><li><a href="SDV.Util.Boolean.html">Boolean</a></li><li><a href="SDV.Util.Function.html">Function</a></li><li><a href="SDV.Util.Geojson.html">Geojson</a></li><li><a href="SDV.Util.Json.html">Json</a></li><li><a href="SDV.Util.Number.html">Number</a></li><li><a href="SDV.Util.Object.html">Object</a></li><li><a href="SDV.Util.String.html">String</a></li><li><a href="SDV.Util.Validation.html">Validation</a></li><li><a href="SDV.Util.Xml.html">Xml</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.1</a> on Thu Jun 11 2015 06:01:21 GMT+0500 (RTZ 4 (зима))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
