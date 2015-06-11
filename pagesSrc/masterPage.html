@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <!-- build:process -->
+    <title><%= pageTitle %></title>
+    <!-- /build -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- build:process -->
+    <%= pageAdditionalStyles %>
+    <!-- /build -->
+    <!-- build:style inline pageAdditionalInlineStyles -->
+    <!-- /build -->
+</head>
+<body>
+<div id="main">
+    <div id="headerSection" class="section">
+        <div id="aboveHeader"></div>
+        <div id="header">
+			<div id="headerContent">
+				<a href="index.html">
+					<div id="headerLogo"></div>				
+				</a>
+				<div class="headerDelimiter"></div>
+				<div id="headerMenu">
+                    <!-- build:process -->
+					<a id="overviewMenuItem" class="headerMenuItem <%= overviewMiAdditionalClass %>" href="index.html">Overview</a>
+                    <a id="examplesMenuItem" class="headerMenuItem <%= examplesMiAdditionalClass %>" href="examples.html">Examples</a>
+					<a id="documentationMenuItem" class="headerMenuItem <%= documentationMiAdditionalClass %>" href="docs.html">API Documentation</a>
+                    <a id="testsMenuItem" class="headerMenuItem <%= testsMiAdditionalClass %>" href="tests.html">Unit tests</a>
+					<a id="downloadsMenuItem" class="headerMenuItem <%= downloadsMiAdditionalClass %>" href="downloads.html">Downloads</a>
+                    <!-- /build -->
+				</div>
+                <div class="headerDelimiter"></div>
+                <a href="https://github.com/Flexberry/Flexberry-SdvJS"  target="_blank">
+                    <div id="headerGitHubIcon" title="GitHub repository"></div>
+                </a>
+				<div class="clear"></div>
+			</div>
+		</div>
+        <div id="underHeader"></div>
+    </div>
+    <div id="contentSection" class="section">
+        <div id="contentContainer">
+			<div id="contentBorderLeft" class="contentBorder"></div>
+            <div id="content">
+                <div id="contentUpperDelimiter" style="height: 10px; width: 100%;" ></div>
+                    <!-- build:section pageContent-->
+                    <!-- /build -->
+                <div id="contentLowerDelimiter" style="height: 10px; width: 100%;" ></div>
+            </div>
+			<div id="contentBorderRight" class="contentBorder"></div>
+        </div>
+    </div>
+    <div id="footerSection" class="section">
+        <div id="footer">        
+            <div id='footerText'>
+                <a href='index.html'>SDV.JS 2015 | SPATIAL DATA VISUALIZATION LIBRARY</a><br>
+                <div class="highlightedLinks">
+                    MAINTAINED BY <a href="https://github.com/Flexberry" target="_blank">FLEXBERRY</a>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
+<!-- build:process -->
+<%= pageAdditionalScripts %>
+<!-- /build -->
+<!-- build:script inline pageAdditionalInlineScripts -->
+<!-- /build -->
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/core/util/sdv.util.geojson.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/core/util/sdv.util.geojson.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">25% <small>(1 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">25% <small>(1 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/core/util/</a> &#187; sdv.util.geojson.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿/**
+ * Base namespace for SDV.js library GEOJSON utils.
+ * All supporting GEOJSON utils are accessible through it.
+ * @see {@link http://geojson.org/geojson-spec.html|Learn about GEOJSON data format.}
+ * @namespace SDV.Util.Geojson
+ * @memberof SDV.Util
+ */
+SDV.Util.Geojson = {
+&nbsp;
+    /**
+     * Checks whether a given object is a valid GEOJSON object.
+     * @memberof SDV.Util.Geojson
+     * @public
+     * @function
+     * @param {object} obj Inspected object.
+     * @returns {boolean} Returns true if inspected object is a valid GEOJSON object, otherwise returns false.
+     *
+     * @example
+     * SDV.Util.Geojson.isGeojson(); // false.
+     * SDV.Util.Geojson.isGeojson(null); // false.
+     * SDV.Util.Geojson.isGeojson('This is a string'); // false.
+     * SDV.Util.Geojson.isGeojson(1); // false.
+     * SDV.Util.Geojson.isGeojson([1]); // false.
+     * SDV.Util.Geojson.isGeojson(function(){return 1;}); // false.
+     * SDV.Util.Geojson.isGeojson({one: 1}); // false.
+     * SDV.Util.Geojson.isGeojson({type: 'Point', 'coordinates': [100.0, 0.0]}); // true.
+     */
+    isGeojson: <span class="fstat-no" title="function not covered" >function(data) {</span>
+        // Received data must be a simple object.
+<span class="cstat-no" title="statement not covered" >        if (!SDV.Util.Object.isObject(data)) {</span>
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+        }
+&nbsp;
+&nbsp;
+        //2. 'type' is required member.
+        //The value of the type member must be one of:
+        //"Point", "MultiPoint", "LineString", "MultiLineString", "Polygon", "MultiPolygon", "GeometryCollection", "Feature", or "FeatureCollection".
+&nbsp;
+        //3. 'crs' is optional.
+        //'crs' can be single object or null.
+        //'crs' can be only in 'data' object (on the top of hierarchy), but not in children objects.
+        //A non-null 'crs' object has two mandatory members: "type" and "properties".
+        //The value of the 'type' member must be a string, indicating the type of CRS object.
+        // 'type' can be 'name' or 'link'
+        //The value of the 'properties' member must be an object.
+        // if 'type' == 'name' then properties could only be: 'properties' {name: 'stringed crs name'}
+        // if 'type' == 'link' then properties object has one required member: "href", and one optional member: "type".
+        //The value of the required "href" member must be a string representing a dereferenceable URI.
+        //The value of the optional "type" member must be a string that hints at the format used to represent CRS parameters at the provided URI.
+        //Suggested values are: "proj4", "ogcwkt", "esriwkt", but others can be used.
+&nbsp;
+        //4. 'bbox' is optional.
+        // The value of the bbox member must be a 2*n decimal numbers array, where n is the number of dimensions represented in the contained geometries (n &gt; 0).
+&nbsp;
+        //5. Feature
+        //A GeoJSON object with the type "Feature" is a feature object.
+        //A feature object must have a member with the name "geometry".
+        //The value of the geometry member is a geometry object or a JSON null value.
+        //A geometry is a GeoJSON object where the type member's value is one of the following strings:
+        //"Point", "MultiPoint", "LineString", "MultiLineString", "Polygon", "MultiPolygon", or "GeometryCollection".
+        //A GeoJSON geometry object of any type other than "GeometryCollection" must have a member with the name "coordinates".
+        //The value of the coordinates member is always an array. The structure for the elements in this array is determined by the type of geometry.
+        //Also a feature object must have a member with the name "properties". The value of the properties member is an object (any JSON object or a JSON null value).
+&nbsp;
+        //6.For type "Point", the "coordinates" member must be a single position.
+&nbsp;
+        //7.For type "MultiPoint", the "coordinates" member must be an array of positions.
+&nbsp;
+        //8.For type "LineString", the "coordinates" member must be an array of two or more positions.
+        //A LinearRing is closed LineString with 4 or more positions.
+        //The first and last positions are equivalent (they represent equivalent points).
+        //Though a LinearRing is not explicitly represented as a GeoJSON geometry type, it is referred to in the Polygon geometry type definition.
+&nbsp;
+        //9.For type "MultiLineString", the "coordinates" member must be an array of LineString coordinate arrays.
+&nbsp;
+        //10.For type "Polygon", the "coordinates" member must be an array of LinearRing coordinate arrays.
+        //For Polygons with multiple rings, the first must be the exterior ring and any others must be interior rings or holes.
+&nbsp;
+        //11.For type "MultiPolygon", the "coordinates" member must be an array of Polygon coordinate arrays.
+&nbsp;
+        //12.A GeoJSON object with type "GeometryCollection" is a geometry object which represents a collection of geometry objects.
+        //A geometry collection must have a member with the name "geometries". The value corresponding to "geometries"is an array.
+        //Each element in this array is a GeoJSON geometry object.
+&nbsp;
+        //13. A GeoJSON object with the type "FeatureCollection" is a feature collection object.
+        //An object of type "FeatureCollection" must have a member with the name "features".
+        //The value corresponding to "features" is an array. Each element in the array is a feature object as defined above.
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return true;</span>
+    },
+&nbsp;
+    getEnumerator: <span class="fstat-no" title="function not covered" >function (data) {</span>
+        /*
+        boxCollectionEnumerator = boxCollection.GetEnumerator();
+&nbsp;
+        boxCollectionEnumerator.Reset();
+        while (boxCollectionEnumerator.MoveNext())
+        {
+            object item = boxCollectionEnumerator.Current;
+            // Perform logic on the item
+        }
+&nbsp;
+        // Defines the enumerator for the Boxes collection.
+        // (Some prefer this class nested in the collection class.)
+        public class BoxEnumerator : IEnumerator&lt;Box&gt;
+        {
+            private BoxCollection _collection;
+            private int curIndex;
+            private Box curBox;
+&nbsp;
+&nbsp;
+            public BoxEnumerator(BoxCollection collection)
+            {
+                _collection = collection;
+                curIndex = -1;
+                curBox = default(Box);
+&nbsp;
+            }
+&nbsp;
+            public bool MoveNext()
+            {
+                //Avoids going beyond the end of the collection.
+                if (++curIndex &gt;= _collection.Count)
+                {
+                    return false;
+                }
+                else
+                {
+                    // Set current box to next item in collection.
+                    curBox = _collection[curIndex];
+                }
+                return true;
+            }
+&nbsp;
+            public void Reset() { curIndex = -1; }
+&nbsp;
+            void IDisposable.Dispose() { }
+&nbsp;
+            public Box Current
+            {
+                get { return curBox; }
+            }
+&nbsp;
+&nbsp;
+            object IEnumerator.Current
+            {
+                get { return Current; }
+            }
+&nbsp;
+        }
+        */
+    }
+};</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Apr 30 2015 09:34:18 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

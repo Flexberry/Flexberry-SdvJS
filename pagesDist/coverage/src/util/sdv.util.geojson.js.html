@@ -1,0 +1,1842 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/util/sdv.util.geojson.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../prettify.css">
+
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/util/sdv.util.geojson.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">13.82% <small>(17 / 123)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 66)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">6.67% <small>(1 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">13.82% <small>(17 / 123)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">./src/util/</a> &#187; sdv.util.geojson.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿/**
+ * Base namespace for SDV.js library GEOJSON utils.
+ * All supporting GEOJSON utils are accessible through it.
+ * @see {@link http://geojson.org/geojson-spec.html|Learn about GEOJSON data format.}
+ * @namespace SDV.Util.Geojson
+ * @memberof SDV.Util
+ */
+SDV.Util.Geojson = {
+};
+&nbsp;
+// Using closure for SDV.Util.Geojson methods assigning, to hide some private members.
+(function() {
+    var geometryGeoObjectsTypes = [
+        'Point',
+        'MultiPoint',
+        'LineString',
+        'MultiLineString',
+        'Polygon',
+        'MultiPolygon'
+    ];
+&nbsp;
+    var allGeoObjectsTypes = geometryGeoObjectsTypes.concat(['GeometryCollection', 'Feature', 'FeatureCollection']);
+&nbsp;
+    var validateCommonPropertiesInGeoObject = <span class="fstat-no" title="function not covered" >function(geoObject, allowNullGeoObject, allowedGeoTypes, geoObjectName) {</span>
+<span class="cstat-no" title="statement not covered" >        geoObjectName = geoObjectName || 'geoObject';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var allowedTypes = ['Object'];</span>
+<span class="cstat-no" title="statement not covered" >        if (allowNullGeoObject) {</span>
+<span class="cstat-no" title="statement not covered" >            allowedTypes.push('Null');</span>
+        }
+&nbsp;
+        // First of all, received geoObject must be a defined plain object (or null if allowed).
+<span class="cstat-no" title="statement not covered" >        var validationResult = SDV.Util.Validation.validateOption({</span>
+            optionName: geoObjectName,
+            isRequired: true,
+            allowedTypes: allowedTypes
+        }, geoObject);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // Property 'type' is required for all geoObjects.
+        // The value of the 'type' member must one of the following strings: 'Point', 'MultiPoint', 'LineString',
+        // 'MultiLineString', 'Polygon', 'MultiPolygon' for geometry geoObject.
+        // Or 'GeometryCollection' for geometry collection object,
+        // or 'Feature' for feature object, or 'FeatureCollection' for feature collection object.
+        // Property 'bbox' is optional.
+        // The value of the 'bbox' member must be a 2*n decimal numbers array,
+        // where n is the number of dimensions represented in the contained geometries (n &gt; 0).
+<span class="cstat-no" title="statement not covered" >        validationResult = SDV.Util.Validation.validateOptions([{</span>
+            optionName: 'type',
+            optionFullName: geoObjectName + '.type',
+            isRequired: true,
+            allowedTypes: ['String'],
+            allowedValues: allowedGeoTypes
+        }, {
+            optionName: 'bbox',
+            optionFullName: geoObjectName + '.bbox',
+            isRequired: false,
+            allowedTypes: ['NumberArray'],
+            postValidationMethod: <span class="fstat-no" title="function not covered" >function(bbox) {</span>
+<span class="cstat-no" title="statement not covered" >                var result = {</span>
+                    isValid: true,
+                    message: ''
+                };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (SDV.Util.Number.isOdd(bbox.length)) {</span>
+<span class="cstat-no" title="statement not covered" >                    result.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                    result.message = SDV.Localization.getResource('wrongParameterValueError')({</span>
+                        parameterName: geoObjectName + '.bbox.length',
+                        allowedValues: '2*n, n &gt; 0',
+                        actualValue: bbox.length
+                    });
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return result;</span>
+            },
+            postValidationMethodOptions: geoObject.bbox
+        }], geoObject);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    };
+&nbsp;
+    var validateCrsInGeoObject = <span class="fstat-no" title="function not covered" >function(geoObject, geoObjectName) {</span>
+<span class="cstat-no" title="statement not covered" >        geoObjectName = geoObjectName || 'geoObject';</span>
+&nbsp;
+        // First of all, received geoObject must be a defined plain object.
+<span class="cstat-no" title="statement not covered" >        var validationResult = SDV.Util.Validation.validateOption({</span>
+            optionName: geoObjectName,
+            isRequired: true,
+            allowedTypes: ['Object']
+        }, geoObject);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // GeoJSON object can contain optional 'crs' member which must be a plain object or null.
+<span class="cstat-no" title="statement not covered" >        validationResult = SDV.Util.Validation.validateOptions([{</span>
+            optionName: 'crs',
+            optionFullName: geoObjectName + '.crs',
+            isRequired: false,
+            allowedTypes: ['Null', 'Object'],
+            postValidationMethod: <span class="fstat-no" title="function not covered" >function(crs) {</span>
+<span class="cstat-no" title="statement not covered" >                var result = {</span>
+                    isValid: true,
+                    message: ''
+                };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (crs !== null) {</span>
+                    // A non-null 'crs' object has two mandatory members: 'type' and 'properties'.
+                    // The value of the 'type' member must be a string, indicating the type of CRS object.
+                    // Member 'type' can be 'name' or 'link'.
+                    // Member 'properties' must be a plain object.
+<span class="cstat-no" title="statement not covered" >                    result = SDV.Util.Validation.validateOptions([{</span>
+                        optionName: 'type',
+                        optionFullName: geoObjectName + '.crs.type',
+                        isRequired: true,
+                        allowedTypes: ['String'],
+                        allowedValues: ['name', 'link']
+                    }, {
+                        optionName: 'properties',
+                        optionFullName: geoObjectName + '.crs.properties',
+                        isRequired: true,
+                        allowedTypes: ['Object']
+                    }], crs);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!result.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >                        return result;</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (crs.type === 'link') {</span>
+                        // if 'type' == 'link' then properties object has one required member:
+                        // 'href', and one optional member: 'type'.
+                        // The value of the required 'href' member must be a string representing a dereferenceable URI.
+                        // The value of the optional 'type' member must be a string that hints at the format
+                        // used to represent CRS parameters at the provided URI.
+                        // Suggested values are: 'proj4', 'ogcwkt', 'esriwkt', but others can be used.
+<span class="cstat-no" title="statement not covered" >                        result = SDV.Util.Validation.validateOptions([{</span>
+                            optionName: 'href',
+                            optionFullName: geoObjectName + '.crs.properties.href',
+                            isRequired: true,
+                            allowedTypes: ['String']
+                        }, {
+                            optionName: 'type',
+                            optionFullName: geoObjectName + '.crs.properties.type',
+                            isRequired: false,
+                            allowedTypes: ['String']
+                        }], crs.properties);
+                    } else <span class="cstat-no" title="statement not covered" >if (crs.type === 'name') {</span>
+                        // if 'type' == 'name' then 'properties' could only be: {name: 'stringed crs name'}.
+<span class="cstat-no" title="statement not covered" >                        result = SDV.Util.Validation.validateOptions([{</span>
+                            optionName: 'name',
+                            optionFullName: geoObjectName + '.crs.properties.name',
+                            isRequired: true,
+                            allowedTypes: ['String']
+                        }], crs.properties);
+                    }
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return result;</span>
+            },
+            postValidationMethodOptions: geoObject.crs
+        }], geoObject);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    };
+&nbsp;
+    var validateGeometryGeoObject = <span class="fstat-no" title="function not covered" >function (geoObject, allowNullGeoObject, geoObjectName) {</span>
+<span class="cstat-no" title="statement not covered" >        geoObjectName = geoObjectName || 'geoObject';</span>
+&nbsp;
+        // Validate geoObject, its 'type' and 'bbox'.
+<span class="cstat-no" title="statement not covered" >        var validationResult = validateCommonPropertiesInGeoObject(geoObject, allowNullGeoObject, geometryGeoObjectsTypes, geoObjectName);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // Property 'coordinates' is required for geometry, and it could be simple or multidimensional array
+        // (depending on the geometry type).
+        // Coordinates arrays could be very large, so we would not check them thoroughly.
+        // If 'coordinates' member is defined, and it is array, that is enough for superficially validation.
+<span class="cstat-no" title="statement not covered" >        validationResult = SDV.Util.Validation.validateOptions([{</span>
+            optionName: 'coordinates',
+            optionFullName: geoObjectName  + '.coordinates',
+            isRequired: true,
+            allowedTypes: ['Array']
+        }], geoObject);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    };
+&nbsp;
+    var validateGeometryCollectionGeoObject = <span class="fstat-no" title="function not covered" >function(geoObject, geoObjectName) {</span>
+<span class="cstat-no" title="statement not covered" >        geoObjectName = geoObjectName || 'geoObject';</span>
+&nbsp;
+        // A GeoObject with type 'GeometryCollection' is a geometry object which represents a collection of geometry objects.
+&nbsp;
+        // Validate geoObject, its 'type' and 'bbox'.
+<span class="cstat-no" title="statement not covered" >        var validationResult = validateCommonPropertiesInGeoObject(geoObject, false, ['GeometryCollection'], geoObjectName);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // A geometry collection must have a member with the name 'geometries'.
+        // The value corresponding to 'geometries' is an array.
+<span class="cstat-no" title="statement not covered" >        validationResult = SDV.Util.Validation.validateOptions([{</span>
+            optionName: 'geometries',
+            optionFullName: geoObjectName + '.geometries',
+            isRequired: true,
+            allowedTypes: ['Array'],
+            postValidationMethod: <span class="fstat-no" title="function not covered" >function(geometries) {</span>
+<span class="cstat-no" title="statement not covered" >                var result = {</span>
+                    isValid: true,
+                    message: ''
+                };
+&nbsp;
+                // Each element in the geometries array must be a geometry geoObject.
+<span class="cstat-no" title="statement not covered" >                for (var i = 0, len = geometries.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                    result = validateGeometryGeoObject(geometries[i], false, geoObjectName + '.geometries[' + i + ']');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!result.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >                        return result;</span>
+                    }
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return result;</span>
+            },
+            postValidationMethodOptions: geoObject.geometries
+        }], geoObject);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    };
+&nbsp;
+    var validateFeatureGeoObject = <span class="fstat-no" title="function not covered" >function(geoObject, geoObjectName) {</span>
+<span class="cstat-no" title="statement not covered" >        geoObjectName = geoObjectName || 'geoObject';</span>
+&nbsp;
+        // A GeoJSON object with the type 'Feature' is a feature geoObject.
+&nbsp;
+        // Validate geoObject, its 'type' and 'bbox'.
+<span class="cstat-no" title="statement not covered" >        var validationResult = validateCommonPropertiesInGeoObject(geoObject, false, ['Feature'], geoObjectName);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // A feature must have a member with the name 'geometry'.
+        // The value of the geometry member must be a geometry geoObject or null.
+<span class="cstat-no" title="statement not covered" >        validationResult = validateGeometryGeoObject(geoObject.geometry, true, geoObjectName + '.geometry');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // Feature geoObject must have a member with the name 'properties'.
+        // The value of the 'properties' member must be a plain object or null.
+<span class="cstat-no" title="statement not covered" >        validationResult = SDV.Util.Validation.validateOption({</span>
+            optionName: 'properties',
+            fullOptionName: geoObjectName + '.properties',
+            isRequired: true,
+            allowedTypes: ['Null', 'Object']
+        }, geoObject);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    };
+&nbsp;
+    var validateFeatureCollectionGeoObject = <span class="fstat-no" title="function not covered" >function(geoObject, geoObjectName) {</span>
+<span class="cstat-no" title="statement not covered" >        geoObjectName = geoObjectName || 'geoObject';</span>
+&nbsp;
+        // A geoObject with the type 'FeatureCollection' is a feature collection object.
+&nbsp;
+        // Validate geoObject, its 'type' and 'bbox'.
+<span class="cstat-no" title="statement not covered" >        var validationResult = validateCommonPropertiesInGeoObject(geoObject, false, ['FeatureCollection'], geoObjectName);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // An object of type 'FeatureCollection' must have a member with the name 'features'.
+        // The value corresponding to 'features' is an array.
+<span class="cstat-no" title="statement not covered" >        validationResult = SDV.Util.Validation.validateOptions([{</span>
+            optionName: 'features',
+            optionFullName: geoObjectName + '.features',
+            isRequired: true,
+            allowedTypes: ['Array'],
+            postValidationMethod: <span class="fstat-no" title="function not covered" >function(features) {</span>
+<span class="cstat-no" title="statement not covered" >                var result = {</span>
+                    isValid: true,
+                    message: ''
+                };
+&nbsp;
+                // Each element in the array must be a 'Feature' geoObject.
+<span class="cstat-no" title="statement not covered" >                for (var i = 0, len = features.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                    result = validateFeatureGeoObject(features[i], geoObjectName + '.features[' + i + ']');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!result.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >                        return result;</span>
+                    }
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return result;</span>
+            },
+            postValidationMethodOptions: geoObject.features
+        }], geoObject);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    };
+&nbsp;
+    var geoObjectValidationFunction = {
+        'Point': validateGeometryGeoObject,
+        'MultiPoint': validateGeometryGeoObject,
+        'LineString': validateGeometryGeoObject,
+        'MultiLineString': validateGeometryGeoObject,
+        'Polygon': validateGeometryGeoObject,
+        'MultiPolygon': validateGeometryGeoObject,
+        'GeometryCollection': validateGeometryCollectionGeoObject,
+        'Feature': validateFeatureGeoObject,
+        'FeatureCollection': validateFeatureCollectionGeoObject
+    };
+&nbsp;
+    /**
+     * Checks whether a given object is a {@link http://geojson.org/geojson-spec.html|valid GeoJSON object}.
+     * @memberof SDV.Util.Geojson
+     * @public
+     * @function
+     * @param {object} geoJsonObject Inspected object.
+     * @param {Array} [allowedGeoObjectTypes] Allowed geoObjectTypes for inspected object (all types are allowed by default).
+     * @returns {optionsValidationResult} Returns object contains validation results.
+     *
+     * @example
+     * // It will return { isValid: false, message: 'Error. Required parameter 'geoJsonObject' is undefined.' }.
+     * SDV.Util.Geojson.validate();
+     *
+     * // It will return {
+     *      isValid: false,
+     *      message: 'Error. Parameter 'geoJsonObject' must be of type 'Object', but not of type '[object Null]'.'
+     * }.
+     * SDV.Util.Geojson.validate(null); // Same logic for all types except plain object [object Object].
+     *
+     * // It will return {
+     *      isValid: false,
+     *      message: 'Error. Required parameter 'geoJsonObject.type' is undefined.'
+     * }.
+     * SDV.Util.Geojson.validate({});
+     *
+     * // It will return {
+     *      isValid: false,
+     *      message: 'Error. Parameter 'geoJsonObject.type' must have one of the following values:
+     *          'Point', 'MultiPoint', 'LineString', 'MultiLineString', 'Polygon', 'MultiPolygon', 'GeometryCollection',
+     *          'Feature', 'FeatureCollection'. This value is not allowed: 'MyType'.'
+     * }.
+     * SDV.Util.Geojson.validate({type: 'MyType'});
+     *
+     * // It will return { isValid: false, message: 'Error. Required parameter 'geoObject.coordinates' is undefined.' }.
+     * SDV.Util.Geojson.validate({type: 'Point'});
+     *
+     * // It will return { isValid: true, message: '' }.
+     * SDV.Util.Geojson.validate({type: 'Point', coordinates: [100.0, 0.0]});
+     */
+    var validateGeoJson = <span class="fstat-no" title="function not covered" >function(geoJsonObject, allowedGeoObjectTypes) {</span>
+<span class="cstat-no" title="statement not covered" >        var geoObjectName = 'geoJsonObject';</span>
+&nbsp;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var allGeoObjectTypes = SDV.Util.Object.getPropertiesNames(geoObjectValidationFunction);</span>
+&nbsp;
+        // Validate allowedGeoObjectTypes if defined.
+<span class="cstat-no" title="statement not covered" >        var validationResult = SDV.Util.Validation.validateOption({</span>
+            optionName: 'allowedGeoObjectTypes',
+            isRequired: false,
+            allowedTypes: ['StringArray'],
+            postValidationMethod: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >                var result = {</span>
+                    isValid: true,
+                    message: ''
+                };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (typeof allowedGeoObjectTypes !== 'undefined') {</span>
+                    // Each element in the given allowedGeoObjectTypes array must be a valid GeoJSON-type.
+<span class="cstat-no" title="statement not covered" >                    for (var i = 0, len = allowedGeoObjectTypes.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                        result = SDV.Util.Validation.validateOption({</span>
+                            optionName: 'allowedGeoObjectTypes[' + i + ']',
+                            isRequired: true,
+                            allowedTypes: ['String'],
+                            allowedValues: allGeoObjectTypes
+                        }, allowedGeoObjectTypes[i]);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        if (!result.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >                            return result;</span>
+                        }
+                    }
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return result;</span>
+            }
+        }, allowedGeoObjectTypes);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // Validate geoJsonObject common properties (its 'type' and 'bbox').
+<span class="cstat-no" title="statement not covered" >        validationResult = validateCommonPropertiesInGeoObject(</span>
+            geoJsonObject,
+            false,
+            allGeoObjectTypes,
+            geoObjectName
+        );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // Make 'type'-related specific validation.
+<span class="cstat-no" title="statement not covered" >        if (geoObjectValidationFunction.hasOwnProperty(geoJsonObject.type)) {</span>
+<span class="cstat-no" title="statement not covered" >            validationResult = geoObjectValidationFunction[geoJsonObject.type](geoJsonObject, geoObjectName);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            validationResult = false;</span>
+<span class="cstat-no" title="statement not covered" >            validationResult.message = SDV.Localization.getResource('wrongParameterValueError')({</span>
+                parameterName: geoObjectName + '.type',
+                actualValue: geoJsonObject.type,
+                allowedValues: allGeoObjectTypes
+            });
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            return validationResult;</span>
+        }
+&nbsp;
+        // Validate optional 'crs' member.
+<span class="cstat-no" title="statement not covered" >        validationResult = validateCrsInGeoObject(geoJsonObject, geoObjectName);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return validationResult;</span>
+    };
+&nbsp;
+    /**
+     * Checks whether a given object is a {@link http://geojson.org/geojson-spec.html|valid GeoJSON object}.
+     * @memberof SDV.Util.Geojson
+     * @public
+     * @function
+     * @param {object} obj Inspected object.
+     * @returns {boolean} Returns true if inspected object is a valid GEOJSON object, otherwise returns false.
+     *
+     * @example
+     * SDV.Util.Geojson.isGeojson(); // false.
+     * SDV.Util.Geojson.isGeojson(null); // false.
+     * SDV.Util.Geojson.isGeojson('This is a string'); // false.
+     * SDV.Util.Geojson.isGeojson(1); // false.
+     * SDV.Util.Geojson.isGeojson([1]); // false.
+     * SDV.Util.Geojson.isGeojson(function(){return 1;}); // false.
+     * SDV.Util.Geojson.isGeojson({one: 1}); // false.
+     * SDV.Util.Geojson.isGeojson({type: 'Point', coordinates: [100.0, 0.0]}); // true.
+     */
+    var isGeojson = <span class="fstat-no" title="function not covered" >function(obj) {</span>
+<span class="cstat-no" title="statement not covered" >        return validateGeoJson(obj).isValid;</span>
+    };
+&nbsp;
+    /**
+     * Gets array of geo-objects contained in given GeoJSON object.
+     * @memberof SDV.Util.Geojson
+     * @public
+     * @function
+     * @param {object} geoJsonObject GeoJSON object of interest.
+     * @param {boolean} validationNeeded Flag: indicates whether preliminary validation of given object is needed or not.
+     * @returns {boolean} Returns array of geo-objects contained in given GeoJSON object.
+     *
+     * @example
+     * SDV.Util.Geojson.getGeoObjects(); // []. And error message in console, about invalid GeoJSON.
+     * SDV.Util.Geojson.getGeoObjects(null); // []. And error message in console, about invalid GeoJSON.
+     * SDV.Util.Geojson.getGeoObjects('This is a string'); // []. And error message in console, about invalid GeoJSON.
+     * SDV.Util.Geojson.getGeoObjects(1); // []. And error message in console, about invalid GeoJSON.
+     * SDV.Util.Geojson.getGeoObjects([1]); // []. And error message in console, about invalid GeoJSON.
+     * SDV.Util.Geojson.getGeoObjects(function(){ return 1; }); // []. And error message in console, about invalid GeoJSON.
+     * SDV.Util.Geojson.getGeoObjects({}); // []. And error message in console, about invalid GeoJSON.
+     *
+     * // [{type: 'Point', coordinates: [0.0, 1.0]}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'Point',
+     *      coordinates: [0.0, 1.0]
+     * });
+     *
+     * // [{type: 'MultiPoint', coordinates: [[0.0, 1.0], [0.0, 2.0]]}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'MultiPoint',
+     *      coordinates: [[0.0, 1.0]]
+     * });
+     *
+     * // [{type: 'LineString', coordinates: [[0.0, 1.0], [0.0, 2.0]]}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'LineString',
+     *      coordinates: [[0.0, 1.0], [0.0, 2.0]]
+     * });
+     *
+     * // [{type: 'MultiLineString', coordinates: [[[0.0, 1.0], [0.0, 2.0]], [[0.0, 1.0], [0.0, 3.0]]]}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'MultiLineString',
+     *      coordinates: [[[0.0, 1.0], [0.0, 2.0]], [[0.0, 1.0], [0.0, 3.0]]]
+     * });
+     *
+     * // [{type: 'Polygon', coordinates: [[[1.0, 0.0], [2.0, 0.0], [2.0, 1.0]]]}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'Polygon',
+     *      coordinates: [[[1.0, 0.0], [2.0, 0.0], [2.0, 1.0]]]
+     * });
+     *
+     * // [{type: 'MultiPolygon', coordinates: [[[[1.0, 0.0], [2.0, 0.0], [2.0, 1.0]]], [[[3.0, 0.0], [4.0, 0.0], [4.0, 1.0]]]]}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'MultiPolygon',
+     *      coordinates: [[[[1.0, 0.0], [2.0, 0.0], [2.0, 1.0]]], [[[3.0, 0.0], [4.0, 0.0], [4.0, 1.0]]]]
+     * });
+     *
+     * // [{type: 'Point', coordinates: [0.0, 1.0]}, {type: 'Point', coordinates: [0.0, 2.0]}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'GeometryCollection',
+     *          geometries: [{
+     *              type: 'Point',
+     *              coordinates: [0.0, 1.0]
+     *          }, {
+     *              type: 'Point',
+     *              coordinates: [0.0, 2.0]
+     *          }]
+     * });
+     *
+     * // [{type: 'Feature', geometry: {type: 'Point', coordinates: [0.0, 1.0]}, properties: {property1: 1, property2: 2}}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'Feature',
+     *      geometry: {
+     *          type: 'Point',
+     *          coordinates: [0.0, 1.0]
+     *      },
+     *      properties: {
+     *          property1: 1,
+     *          property2: 2
+     *      }
+     * });
+     *
+     * // [{type: 'Feature', geometry: {type: 'Point', coordinates: [0.0, 1.0]}, properties: {property1: 1, property2: 2}},
+     * //  {type: 'Feature', geometry: {type: 'Point', coordinates: [0.0, 2.0]}, properties: {property1: '1', property2: '2'}}].
+     * SDV.Util.Geojson.getGeoObjects({
+     *      type: 'FeatureCollection',
+     *      features: [{
+     *          type: 'Feature',
+     *          geometry: {
+     *              type: 'Point',
+     *              coordinates: [0.0, 1.0]
+     *          },
+     *          properties: {
+     *              property1: 1,
+     *              property2: 2
+     *          }
+     *      }, {
+     *          type: 'Feature',
+     *          geometry: {
+     *              type: 'Point',
+     *              coordinates: [0.0, 2.0]
+     *          },
+     *          properties: {
+     *              property1: '1',
+     *              property2: '2'
+     *          }
+     *      }]
+     * });
+     */
+    var getGeoObjects = <span class="fstat-no" title="function not covered" >function(geoJsonObject, validationNeeded) {</span>
+<span class="cstat-no" title="statement not covered" >        var result = [];</span>
+&nbsp;
+        // Don't validate given object only if validationNeeded === false.
+<span class="cstat-no" title="statement not covered" >        validationNeeded = validationNeeded !== false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (validationNeeded) {</span>
+<span class="cstat-no" title="statement not covered" >            var validationResult = validateGeoJson(geoJsonObject);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >                console.error(validationResult.message);</span>
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SDV.Util.Array.contains(geometryGeoObjectsTypes, geoJsonObject.type) || geoJsonObject.type === 'Feature') {</span>
+            // If given GeoJSON object is geometry geoObject or a feature, then we should just push it to result array.
+<span class="cstat-no" title="statement not covered" >            result.push(geoJsonObject);</span>
+        } else <span class="cstat-no" title="statement not covered" >if (geoJsonObject.type === 'GeometryCollection') {</span>
+            // If given GeoJSON object is GeometryCollection then we should just return its 'geometries' member as result.
+<span class="cstat-no" title="statement not covered" >            result = geoJsonObject.geometries;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (geoJsonObject.type === 'FeatureCollection') {</span>
+            // If given GeoJSON object is FeatureCollection then we should just return its 'features' member as result.
+<span class="cstat-no" title="statement not covered" >            result = geoJsonObject.features;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return result;</span>
+    };
+&nbsp;
+    // Assign public methods to SDV.Util.Geojson namespace.
+    SDV.Util.Geojson.validate = validateGeoJson;
+    SDV.Util.Geojson.isGeojson = isGeojson;
+    SDV.Util.Geojson.getGeoObjects = getGeoObjects;
+})();</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 30 2015 02:12:28 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../sorter.js"></script>
+</body>
+</html>

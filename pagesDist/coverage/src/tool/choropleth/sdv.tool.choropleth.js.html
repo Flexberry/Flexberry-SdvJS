@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/tool/choropleth/sdv.tool.choropleth.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/tool/choropleth/sdv.tool.choropleth.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">10.87% <small>(5 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">14.29% <small>(1 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">10.87% <small>(5 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/tool/choropleth/</a> &#187; sdv.tool.choropleth.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿// Using closure for SDV.Tool.Choropleth methods assigning, to hide some private members.
+(function() {
+    var mode = {};
+&nbsp;
+    mode.oneFeatureOneCategory = <span class="fstat-no" title="function not covered" >function(featuresSet) {</span>
+<span class="cstat-no" title="statement not covered" >        var usedColors = [];</span>
+<span class="cstat-no" title="statement not covered" >        var categoriesCount = 0;</span>
+&nbsp;
+        // Given featuresSet is array of complex objects, containing feature and some criterion value corresponded to feature):
+        // [{feature: {...}, criterion: ...}, ...].
+<span class="cstat-no" title="statement not covered" >        return SDV.Enumerable</span>
+            .from(featuresSet)
+            .select(<span class="fstat-no" title="function not covered" >function(x) {</span>
+<span class="cstat-no" title="statement not covered" >                var randomColor = SDV.Color.getRandom({</span>
+                    saturation: 1,
+                    excludedColors: usedColors
+                });
+<span class="cstat-no" title="statement not covered" >                usedColors.push(randomColor);</span>
+<span class="cstat-no" title="statement not covered" >                categoriesCount++;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return {</span>
+                    categoryName: 'Category' + categoriesCount,
+                    categoryColor: randomColor,
+                    criterionValue: x.criterionValue
+                };
+            })
+            .toArray();
+    };
+&nbsp;
+    /**
+     * Analysis by categories tool (choropleth tool).
+     * It can apply GeoJSON data and clusterize its features into several categories, according to the specified settings.
+     * @public
+     * @function
+     * @memberof SDV.Tool
+     *
+     * @param {object} options Categorization options.
+     * @returns {object} Returns same GeoJSON object, in which every feature contains property
+     * SdvCategorization = {categoryName: '', categoryCriterionValue: '', categoryStyle: {}}.
+     */
+    var choropleth = <span class="fstat-no" title="function not covered" >function(options) {</span>
+<span class="cstat-no" title="statement not covered" >        var defaults = {</span>
+            data: {},
+            criterion: <span class="fstat-no" title="function not covered" >function(feature){</span> <span class="cstat-no" title="statement not covered" >return null; </span>},
+            mode: 'oneFeatureOneCategory',
+            modeOptions: {}
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var validationResult = SDV.Util.Validation.validateOptions([{</span>
+            optionName: 'data',
+            optionFullName: 'options.data',
+            isRequired: true,
+            allowedTypes: ['Object'],
+            postValidationMethod: <span class="fstat-no" title="function not covered" >function(geoJsonObject) {</span>
+                // Validate given geoJsonObject. Only 'Feature', 'FeaturesCollection' are allowed for choropleth tool.
+<span class="cstat-no" title="statement not covered" >                return SDV.Util.Geojson.validate(geoJsonObject, ['Feature', 'FeatureCollection']);</span>
+            },
+            postValidationMethodOptions: (options || {}).data
+        }, {
+            optionName: 'criterion',
+            optionFullName: 'options.criterion',
+            isRequired: false,
+            allowedTypes: ['String', 'Function'],
+            replaceWithDefaultIfUndefined: true
+        }, {
+            optionName: 'mode',
+            optionFullName: 'options.mode',
+            isRequired: false,
+            allowedTypes: ['String'],
+            allowedValues: SDV.Util.Object.getPropertiesNames(mode),
+            replaceWithDefaultIfUndefined: true
+        }, {
+            optionName: 'modeOptions',
+            optionFullName: 'options.modeOptions',
+            isRequired: false,
+            allowedTypes: ['Object']
+        }], options, defaults);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            var categorizationMode = mode[options.mode];</span>
+&nbsp;
+            // Selected mode must be a function.
+<span class="cstat-no" title="statement not covered" >            validationResult =  SDV.Util.Validation.validateOption({</span>
+                optionName: 'mode',
+                optionFullName: options.mode,
+                isRequired: true,
+                allowedTypes: ['Function']
+            }, categorizationMode);
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+            // Something goes wrong. Given options are invalid.
+            // We should break method execution.
+<span class="cstat-no" title="statement not covered" >            console.error(validationResult.message);</span>
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+        // Given options and GeoJSON data are valid. We can clone given GeoJSON (so as not to screw up the original).
+<span class="cstat-no" title="statement not covered" >        var geoJsonData = SDV.Util.Json.parse(SDV.Util.Json.stringify(options.data));</span>
+&nbsp;
+        // It would be easier to work with array of features.
+<span class="cstat-no" title="statement not covered" >        var geoJsonFeatures = SDV.Util.Geojson.getGeoObjects(geoJsonData, false);</span>
+&nbsp;
+        // Chosen choropleth method.
+<span class="cstat-no" title="statement not covered" >        var categorizationMethod = mode[options.mode];</span>
+&nbsp;
+        // Prepare features set (array of complex objects, containing feature and some criterion value corresponded to feature):
+        // [{feature: {...}, criterion: ...}, ...].
+<span class="cstat-no" title="statement not covered" >        var featuresSet = SDV.Enumerable</span>
+            .from(geoJsonFeatures)
+            .select(<span class="fstat-no" title="function not covered" >function(x){</span>
+                // It is necessary to clone feature before passing it into a method, defined by API-user.
+                // Because the original feature should remain unchanged.
+<span class="cstat-no" title="statement not covered" >                var clonedFeature = SDV.Util.Json.parse(SDV.Util.Json.stringify(x));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return {</span>
+                    feature: clonedFeature,
+                    criterionValue: SDV.Util.String.isString(options.criterion)
+                        // Given parameter options.criterion is just property name.
+                        ? (clonedFeature.properties || {})[options.criterion]
+&nbsp;
+                        // Given parameter options.criterion is a function that takes a feature,
+                        // and returns some feature.properties - related calculated value.
+                        : options.criterion(clonedFeature)
+                };
+            })
+            .toArray();
+&nbsp;
+        // Do choropleth.
+<span class="cstat-no" title="statement not covered" >        var categorizationResults = categorizationMethod(featuresSet, options.modeOptions);</span>
+<span class="cstat-no" title="statement not covered" >        if (!SDV.Util.Array.isArray(categorizationResults)) {</span>
+<span class="cstat-no" title="statement not covered" >            categorizationResults = [];</span>
+        }
+&nbsp;
+        // Returned categorizationResults - it should be an array of such objects: {
+        //      categoryName: 'Some name as string',
+        //      categoryColor: 'Some color hex code in 6-character dash notation as string',
+        //      criterionValue: Some any type value
+        // },
+        // and each object in this array should correspond to same index feature in the featuresSet.
+<span class="cstat-no" title="statement not covered" >        for (var i = 0, len = geoJsonFeatures.length; i &lt; len; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            var feature = geoJsonFeatures[i];</span>
+&nbsp;
+            // Places choropleth results into features properties (feature.properties.sdv.choropleth).
+<span class="cstat-no" title="statement not covered" >            feature.properties = feature.properties || {};</span>
+<span class="cstat-no" title="statement not covered" >            feature.properties.sdv = feature.properties.sdv || {};</span>
+<span class="cstat-no" title="statement not covered" >            feature.properties.sdv.choropleth = categorizationResults[i];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!SDV.Util.Object.isObject(feature.properties.sdv.choropleth)) {</span>
+<span class="cstat-no" title="statement not covered" >                feature.properties.sdv.choropleth = null;</span>
+            }
+        }
+&nbsp;
+        // Categorization finished.
+        // Now we can construct resulting GeoJSON object with features containing special choropleth-related properties.
+<span class="cstat-no" title="statement not covered" >        var result = geoJsonData.type === 'Feature' &amp;&amp; SDV.Util.Object.isObject(geoJsonFeatures[0])</span>
+            ? geoJsonFeatures[0]
+            : {};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (typeof geoJsonData.crs !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >            result.crs = geoJsonData.crs;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (typeof geoJsonData.bbox !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >            result.bbox = geoJsonData.bbox;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (geoJsonData.type === 'FeatureCollection') {</span>
+<span class="cstat-no" title="statement not covered" >            result.features = geoJsonFeatures;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return result;</span>
+    };
+&nbsp;
+    SDV.Tool.Choropleth = choropleth;
+})();</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 30 2015 02:12:28 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

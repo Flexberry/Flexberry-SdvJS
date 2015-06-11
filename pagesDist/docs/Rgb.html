@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Rgb</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Class: Rgb</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>
+        Rgb
+        </h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+
+    
+
+    <h4 class="name" id="Rgb"><span class="type-signature"></span>new Rgb<span class="signature">(colorDefinition)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Constructs new instance of RGB-represented color.Constructor is private, so use factory-method <a href="SDV.Color.Model.Rgb.html#.create">SDV.Color.Model.Rgb.create</a> to create an instance.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>colorDefinition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Color definition represented asobject, containing values for reg, green and blue channels, for example { red: 255, green: 255, blue: 255 }.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5527">line 5527</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.blue"><span class="type-signature">(static) </span>rgb.blue<span class="signature">(channelValue<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {number|<a href="Rgb.html">Rgb</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets or sets blue channel value for <a href="Rgb.html">Rgb</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channelValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Desirable integer ([0..255]) value for blue channel of <a href="Rgb.html">Rgb</a>.If channelValue isn't defined then method works as getter, otherwise it works as setter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5805">line 5805</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns value of blue channel (if method works as getter),or returns current <a href="Rgb.html">Rgb</a> instance (if method works as setter).
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+|
+
+<span class="param-type"><a href="Rgb.html">Rgb</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var softBlueRgb = SDV.Color.Model.Rgb.create({     red: 32,     green: 64,     blue: 128});// It will return 128.softBlueRgb.blue();// It will set blue channel to 126.softBlueRgb.blue(126);// Now it will return 126.softBlueRgb.blue();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.clone"><span class="type-signature">(static) </span>rgb.clone<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Rgb.html">Rgb</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates new <a href="Rgb.html">Rgb</a> instance with same RGB-channels values.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5989">line 5989</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns new <a href="Rgb.html">Rgb</a> instance with same RGB-channels values.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Rgb.html">Rgb</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var whiteRgb = SDV.Color.Model.Rgb.create({     red: 255,     green: 255,     blue: 255});// It will return new instance of RGB color representation with same channels values:// red = 255, green = 255, blue = 255.var whiteRgbClone = whiteRgb.clone();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.distanceTo"><span class="type-signature">(static) </span>rgb.distanceTo<span class="signature">(anotherRgb)</span><span class="type-signature"> &rarr; {number|null}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets distance between RGB color representation and another RGB color representation.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>anotherRgb</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Rgb.html">Rgb</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Another RGB color representation, distance to which we need to know.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5826">line 5826</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns distance (from 0.0 till 1.0),or null if given parameter is not an instance of @see{Hsb}.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+|
+
+<span class="param-type">null</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var blackColorRgb = SDV.Color.Model.Rgb.create('#000000');var redColorRgb = SDV.Color.Model.Rgb.create('#ff0000');// It will return 1;blackColorRgb.distanceTo(redColorRgb);</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.equals"><span class="type-signature">(static) </span>rgb.equals<span class="signature">(obj, eps)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Checks if given object is equals to <a href="Rgb.html">Rgb</a> instance.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>obj</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Another HSB color representation, for equality comparison.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>eps</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Permissible comparison inaccuracy (from 0 to 1).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line6033">line 6033</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns true if given object is <a href="Rgb.html">Rgb</a> instance with same RGB-channels values, otherwise returns false.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var whiteRgb = SDV.Color.Model.Rgb.create({     red: 255,     green: 255,     blue: 255});var anotherWhiteRgb = whiteRgb.clone();var blackRgb = SDV.Color.Model.Rgb.create({     red: 0,     green: 0,     blue: 0});var darkGrayRgb= SDV.Color.Model.Rgb.create('darkgray');whiteRgb.equals(); // false.whiteRgb.equals('#ffffff'); // false.whiteRgb.equals('white'); // false.whiteRgb.equals({ red: 255, green: 255, blue: 255 }); // false.whiteRgb.equals(blackRgb); // false.whiteRgb.equals(anotherWhiteRgb); // true.blackRgb.equals(darkGrayRgb); // false.blackRgb.equals(darkGrayRgb, 0.5); // true.</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.green"><span class="type-signature">(static) </span>rgb.green<span class="signature">(channelValue<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {number|<a href="Rgb.html">Rgb</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets or sets green channel value for <a href="Rgb.html">Rgb</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channelValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Desirable integer ([0..255]) value for green channel of <a href="Rgb.html">Rgb</a>.If channelValue isn't defined then method works as getter, otherwise it works as setter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5774">line 5774</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns value of green channel (if method works as getter),or returns current <a href="Rgb.html">Rgb</a> instance (if method works as setter).
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+|
+
+<span class="param-type"><a href="Rgb.html">Rgb</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var softBlueRgb = SDV.Color.Model.Rgb.create({     red: 32,     green: 64,     blue: 128});// It will return 64.softBlueRgb.green();// It will set green channel to 66.softBlueRgb.green(66);// Now it will return 66.softBlueRgb.green();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.red"><span class="type-signature">(static) </span>rgb.red<span class="signature">(channelValue<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {number|<a href="Rgb.html">Rgb</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Gets or sets red channel value for <a href="Rgb.html">Rgb</a>.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>channelValue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Desirable integer ([0..255]) value for red channel of <a href="Rgb.html">Rgb</a>.If channelValue isn't defined then method works as getter, otherwise it works as setter.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5743">line 5743</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns value of red channel (if method works as getter),or returns current <a href="Rgb.html">Rgb</a> instance (if method works as setter).
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">number</span>
+|
+
+<span class="param-type"><a href="Rgb.html">Rgb</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var softBlueRgb = SDV.Color.Model.Rgb.create({     red: 32,     green: 64,     blue: 128});// It will return 32.softBlueRgb.red();// It will set red channel to 36.softBlueRgb.red(36);// Now it will return 36.softBlueRgb.red();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.toHex"><span class="type-signature">(static) </span>rgb.toHex<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Transforms <a href="Rgb.html">Rgb</a> color to its stringed 6-character hex-code.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5856">line 5856</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns 6-character color hex-code.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var whiteRgb = SDV.Color.Model.Rgb.create({     red: 255,     green: 255,     blue: 255});// It will return '#ffffff'.var whiteHex = whiteRgb.toHex();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.toHsb"><span class="type-signature">(static) </span>rgb.toHsb<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Hsb.html">Hsb</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Transforms <a href="Rgb.html">Rgb</a> color to its <a href="Hsb.html">Hsb</a> (Hue Saturation Brightness) color representation.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5932">line 5932</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns new instance of <a href="Hsb.html">Hsb</a> (Hue Saturation Brightness) color representation.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Hsb.html">Hsb</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var whiteRgb = SDV.Color.Model.Rgb.create({     red: 255,     green: 255,     blue: 255});// It will return new instance of HSB color representation with hue = 0, saturation = 0, brightness = 1.var whiteHsb = whiteRgb.toHsb();</code></pre>
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id=".rgb.toHsl"><span class="type-signature">(static) </span>rgb.toHsl<span class="signature">()</span><span class="type-signature"> &rarr; {<a href="Hsl.html">Hsl</a>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Transforms <a href="Rgb.html">Rgb</a> color to its <a href="Hsl.html">Hsl</a> (Hue Saturation Lightness) color representation.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="sdv.js.html">sdv.js</a>, <a href="sdv.js.html#line5877">line 5877</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns new instance of <a href="Hsl.html">Hsl</a> (Hue Saturation Lightness) color representation.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type"><a href="Hsl.html">Hsl</a></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>var whiteRgb = SDV.Color.Model.Rgb.create({     red: 255,     green: 255,     blue: 255});// It will return new instance of HSL color representation with hue = 0, saturation = 0, lightness = 1.var whiteHsl = whiteRgb.toHsl();</code></pre>
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Color.html">Color</a></li><li><a href="Condition.html">Condition</a></li><li><a href="Enumerable.html">Enumerable</a></li><li><a href="Hsb.html">Hsb</a></li><li><a href="Hsl.html">Hsl</a></li><li><a href="Rgb.html">Rgb</a></li></ul><h3>Namespaces</h3><ul><li><a href="SDV.html">SDV</a></li><li><a href="SDV.Color.html">Color</a></li><li><a href="SDV.Color.Model.html">Model</a></li><li><a href="SDV.Color.Model.Hex.html">Hex</a></li><li><a href="SDV.Color.Model.Hsb.html">Hsb</a></li><li><a href="SDV.Color.Model.Hsl.html">Hsl</a></li><li><a href="SDV.Color.Model.Rgb.html">Rgb</a></li><li><a href="SDV.Condition.html">Condition</a></li><li><a href="SDV.Enumerable.html">Enumerable</a></li><li><a href="SDV.Localization.html">Localization</a></li><li><a href="SDV.Tool.html">Tool</a></li><li><a href="SDV.Util.html">Util</a></li><li><a href="SDV.Util.Ajax.html">Ajax</a></li><li><a href="SDV.Util.Array.html">Array</a></li><li><a href="SDV.Util.Boolean.html">Boolean</a></li><li><a href="SDV.Util.Function.html">Function</a></li><li><a href="SDV.Util.Geojson.html">Geojson</a></li><li><a href="SDV.Util.Json.html">Json</a></li><li><a href="SDV.Util.Number.html">Number</a></li><li><a href="SDV.Util.Object.html">Object</a></li><li><a href="SDV.Util.String.html">String</a></li><li><a href="SDV.Util.Validation.html">Validation</a></li><li><a href="SDV.Util.Xml.html">Xml</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.1</a> on Thu Jun 11 2015 06:01:20 GMT+0500 (RTZ 4 (зима))
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

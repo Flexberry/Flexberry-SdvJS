@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/core/localization/sdv.localization.en.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/core/localization/sdv.localization.en.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">10% <small>(1 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">10% <small>(1 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/core/localization/</a> &#187; sdv.localization.en.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">﻿// Add english localization dictionary.
+SDV.Localization.extend({
+    locale: 'en',
+    setAsCurrent: true,
+    dictionary: {
+        // Test greeting.
+        greeting: 'Hello, world!',
+&nbsp;
+        // Method to get an error-message about missing localization dictionary.
+        missingDictionaryError: <span class="fstat-no" title="function not covered" >function (locale) {</span>
+<span class="cstat-no" title="statement not covered" >            return 'Error. There is no dictionary for \'' + locale + '\' language.';</span>
+        },
+&nbsp;
+        // Method to get an error-message about wrong parameter type.
+        wrongParameterTypeError: <span class="fstat-no" title="function not covered" >function (options) {</span>
+<span class="cstat-no" title="statement not covered" >            options = options || {};</span>
+<span class="cstat-no" title="statement not covered" >            return 'Error. Parameter \'' + options.parameterName + '\' must be of type \'' + options.expectedType +</span>
+                '\', but not of type \'' + Object.prototype.toString.call(options.actualValue) + '\'.';
+        },
+&nbsp;
+        // Method to get an error-message about wrong parameter format.
+        wrongParameterFormatError: <span class="fstat-no" title="function not covered" >function (options) {</span>
+<span class="cstat-no" title="statement not covered" >            options = options || {};</span>
+<span class="cstat-no" title="statement not covered" >            return 'Error. Parameter \'' + options.parameterName + '\' has invalid format (' + options.actualValue + ').' +</span>
+                ' It must have valid \'' + options.expectedFormat + '\' format.';
+        },
+&nbsp;
+        // Method to get an error-message about wrong parameter value.
+        wrongParameterValueError: <span class="fstat-no" title="function not covered" >function (options) {</span>
+<span class="cstat-no" title="statement not covered" >            options = options || {};</span>
+<span class="cstat-no" title="statement not covered" >            return 'Error. Parameter \'' + options.parameterName + '\' must have one of the following values: \'' +</span>
+                (SDV.Util.Array.isArray(options.allowedValues) ? options.allowedValues.join(', ') : options.allowedValues) +
+                '\'. This value is not allowed: ' + options.actualValue + '.';
+        },
+&nbsp;
+        // Method to get an error-message about undefined required parameter.
+        missingRequiredParameterError: <span class="fstat-no" title="function not covered" >function (parameterName) {</span>
+<span class="cstat-no" title="statement not covered" >            return 'Error. Required parameter \'' + parameterName + '\' is undefined.';</span>
+        },
+&nbsp;
+        // Method to get an error-message about browser unsupported property.
+        unsupportedFacilityError: <span class="fstat-no" title="function not covered" >function (unsupported) {</span>
+<span class="cstat-no" title="statement not covered" >            return 'Error. Your browser doesn\'t support ' +</span>
+                (SDV.Util.Array.isArray(unsupported)
+                    ? 'any of the following facilities: ' + unsupported.join(', ')
+                    : unsupported) +
+                '.';
+        }
+    }
+});</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Apr 30 2015 09:34:18 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

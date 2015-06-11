@@ -1,0 +1,63 @@
+{
+  "name": "sdvjs",
+  "version": "0.1.0-dev",
+  "title": "SDV.js (Spatial Data Visualization)",
+  "description": "A JS library for spatial data analysis and visualization on interactive web maps",
+  "keywords": [
+    "Maps",
+    "GIS",
+    "JavaScript",
+    "Spatial data",
+    "Visualization",
+    "Categories",
+    "Buffer zones",
+    "Diagrams",
+    "Interpolation",
+    "Leaflet",
+    "Open Layers"
+  ],
+  "author": {
+    "name": "Flexberry platform",
+    "email": "mail@flexberry.net",
+    "url": "https://github.com/Flexberry"
+  },
+  "contributors": [
+    {
+      "name": "Serega Matin",
+      "email": "seregamatin@gmail.com",
+      "url": "https://github.com/SeregaMatin"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Flexberry/Flexberry-SdvJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Flexberry/Flexberry-SdvJS/issues"
+  },
+  "homepage": "https://github.io/Flexberry/Flexberry-SdvJS",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-uglify": "^0.8.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-gh-pages": "^0.10.0",
+    "grunt-html-build": "^0.4.3",
+    "grunt-jsdoc": "^0.6.3",
+    "grunt-jsdoc-to-markdown": "^0.5.1",
+    "grunt-karma": "^0.10.1",
+    "grunt-markdown": "^0.7.0",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-coverage": "^0.2.7",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon-chai": "^0.3.0",
+    "karma-wrap-preprocessor": "^0.1.0",
+    "mocha": "^2.2.0"
+  }
+}

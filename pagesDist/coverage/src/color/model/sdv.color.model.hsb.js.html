@@ -1,0 +1,1458 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./src/color/model/sdv.color.model.hsb.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">./src/color/model/sdv.color.model.hsb.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">17.2% <small>(16 / 93)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">6.67% <small>(1 / 15)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">17.2% <small>(16 / 93)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./src/color/model/</a> &#187; sdv.color.model.hsb.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Base namespace for SDV.js library HSB (Hue Saturation Brightness) color representation model.
+ * All supporting HSB model facilities are accessible through it.
+ * @namespace SDV.Color.Model.Hsb
+ * @memberof SDV.Color.Model
+ */
+SDV.Color.Model.Hsb = {
+};
+&nbsp;
+// Using closure for SDV.Color.Model.Hsl methods assigning, to hide some private members.
+(function() {
+    /**
+     * Constructs new instance of HSB-represented color.
+     * Constructor is private, so use factory-method {@link SDV.Color.Model.Hsb.create} to create an instance.
+     * @public
+     * @class Hsb
+     * @param {string|object} colorDefinition Color definition represented as
+     * object, containing values of hue, saturation and brightness, for example { hue: 0, saturation: 0, brightness: 1 }.
+     */
+    var Hsb = <span class="fstat-no" title="function not covered" >function(colorDefinition) {</span>
+<span class="cstat-no" title="statement not covered" >        this._hue = colorDefinition.hue;</span>
+<span class="cstat-no" title="statement not covered" >        this._saturation = colorDefinition.saturation;</span>
+<span class="cstat-no" title="statement not covered" >        this._brightness = colorDefinition.brightness;</span>
+    };
+&nbsp;
+    // Factory-method constructing HSB from given color hex-code or name.
+    var createHsbFromHexCodeOrColorName = <span class="fstat-no" title="function not covered" >function(colorDefinition) {</span>
+<span class="cstat-no" title="statement not covered" >        var rgb = SDV.Color.Model.Rgb.create(colorDefinition);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return rgb !== null ? rgb.toHsb() : null;</span>
+    };
+&nbsp;
+    /**
+     * {@link Hsb} factory-method. It is an entry point to library library HSB (Hue Saturation Brightness) color representation model.
+     * @static
+     * @function
+     * @memberof SDV.Color.Model.Hsb
+     * @param {string|object} colorDefinition Color definition represented as:
+     * 1. String color name, for example 'white';
+     * 2. String color 3/6-character hex-code , for example '#fff' or '#ffffff';
+     * 3. Object, containing values of hue, saturation and brightness, for example { hue: 0, saturation: 0, brightness: 1 }.
+     * @returns {Hsb} Returns new instance of {@link Hsb} if given colorDefinition is valid, otherwise returns null.
+     *
+     * @example
+     * // Creates white color HSB representation from its numeric values.
+     * var whiteHsb = SDV.Color.Model.Hsb.create({
+     *      hue: 0,
+     *      saturation: 0,
+     *      brightness: 1
+     * });
+     *
+     * // Creates white color HSB representation from its 3-character hex-code.
+     * var whiteHsb = SDV.Color.Model.Hsb.create('#fff');
+     *
+     * // Creates white color HSB representation from its 6-character hex-code.
+     * var whiteHsb = SDV.Color.Model.Hsb.create('#ffffff');
+     *
+     * // Creates white color HSB representation from its stringed name.
+     * var whiteHsb = SDV.Color.Model.Hsb.create('white');
+     */
+    SDV.Color.Model.Hsb.create = <span class="fstat-no" title="function not covered" >function(colorDefinition) {</span>
+<span class="cstat-no" title="statement not covered" >        var definitionIsHexCode, definitionIsName, definitionIsObject = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var validationResult = SDV.Util.Validation.validateOption({</span>
+            optionName: 'colorDefinition',
+            isRequired: true,
+            allowedTypes: ['Object', 'String'],
+            postValidationMethod: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >                var result = {</span>
+                    isValid: true,
+                    message: ''
+                };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (SDV.Util.String.isString(colorDefinition)) {</span>
+<span class="cstat-no" title="statement not covered" >                    definitionIsHexCode = SDV.Color.Model.Hex.isHex(colorDefinition);</span>
+<span class="cstat-no" title="statement not covered" >                    definitionIsName = SDV.Color.Model.Hex.Code.hasOwnProperty(colorDefinition);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!(definitionIsHexCode || definitionIsName)) {</span>
+<span class="cstat-no" title="statement not covered" >                        result.isValid = false;</span>
+<span class="cstat-no" title="statement not covered" >                        result.message = SDV.Localization.getResource('wrongColorRepresentation')(colorDefinition);</span>
+                    }
+                } else {
+<span class="cstat-no" title="statement not covered" >                    definitionIsObject = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    result = SDV.Util.Validation.validateOptions([{</span>
+                        optionName: 'hue',
+                        optionFullName: 'colorDefinition.hue',
+                        isRequired: true,
+                        allowedTypes: ['Number'],
+                        minValue: 0,
+                        minValueEqualityAllowed: true,
+                        maxValue: 1,
+                        maxValueEqualityAllowed: true
+                    }, {
+                        optionName: 'saturation',
+                        optionFullName: 'colorDefinition.saturation',
+                        isRequired: true,
+                        allowedTypes: ['Number'],
+                        minValue: 0,
+                        minValueEqualityAllowed: true,
+                        maxValue: 1,
+                        maxValueEqualityAllowed: true
+                    }, {
+                        optionName: 'brightness',
+                        optionFullName: 'colorDefinition.brightness',
+                        isRequired: true,
+                        allowedTypes: ['Number'],
+                        minValue: 0,
+                        minValueEqualityAllowed: true,
+                        maxValue: 1,
+                        maxValueEqualityAllowed: true
+                    }], colorDefinition);
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                return result;</span>
+            }
+        }, colorDefinition);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            console.error(validationResult.message);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return null;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (definitionIsHexCode || definitionIsName) {</span>
+<span class="cstat-no" title="statement not covered" >            return createHsbFromHexCodeOrColorName(colorDefinition);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (definitionIsObject) {</span>
+<span class="cstat-no" title="statement not covered" >            return new Hsb(colorDefinition);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return null;</span>
+    };
+&nbsp;
+    /**
+     * Checks if given object is instance of {@link Hsb}.
+     * @static
+     * @function
+     * @memberof SDV.Color.Model.Hsb
+     * @param {*} obj Inspected object.
+     * @returns {boolean} Returns true if given object is instance of {@link Hsb}, otherwise returns false.
+     *
+     * @example
+     * var whiteHsb = SDV.Color.Model.Hsb.create({
+     *      hue: 0,
+     *      saturation: 0,
+     *      brightness: 1
+     * });
+     *
+     * SDV.Color.Model.Hsb.isHsb(); // false.
+     * SDV.Color.Model.Hsb.isHsb('#ffffff'); // false.
+     * SDV.Color.Model.Hsb.isHsb('white'); // false.
+     * SDV.Color.Model.Hsb.isHsb({ hue: 0, saturation: 0, brightness: 1 }); // false.
+     * SDV.Color.Model.Hsb.isHsb(whiteHsb); // true.
+     */
+    SDV.Color.Model.Hsb.isHsb = <span class="fstat-no" title="function not covered" >function(obj) {</span>
+<span class="cstat-no" title="statement not covered" >        return obj instanceof Hsb;</span>
+    };
+&nbsp;
+    // Gets or sets one of HSB components value.
+    // If componentValue is defined then method is setter, otherwise it is getter.
+    var getOrSetComponentValue = <span class="fstat-no" title="function not covered" >function(hsbInstance, componentName, componentValue){</span>
+<span class="cstat-no" title="statement not covered" >        var validationResult = SDV.Util.Validation.validateOption({</span>
+            optionName: 'componentValue',
+            isRequired: false,
+            allowedTypes: ['Number'],
+            minValue: 0,
+            minValueEqualityAllowed: true,
+            maxValue: 1,
+            maxValueEqualityAllowed: true
+        }, componentValue);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isValid) {</span>
+<span class="cstat-no" title="statement not covered" >            console.error(validationResult.message);</span>
+<span class="cstat-no" title="statement not covered" >            return hsbInstance;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var innerComponentName = '_' + componentName;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!validationResult.isDefined) {</span>
+<span class="cstat-no" title="statement not covered" >            return hsbInstance[innerComponentName];</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        hsbInstance[innerComponentName] = componentValue;</span>
+&nbsp;
+        // Return instance for chain calls support.
+<span class="cstat-no" title="statement not covered" >        return hsbInstance;</span>
+    };
+&nbsp;
+    // Prototype shortcut.
+    var hsb = Hsb.prototype = {};
+&nbsp;
+    /**
+     * Gets or sets value for hue component of {@link Hsb}.
+     * @public
+     * @function
+     * @memberof Hsb
+     * @param {number} [componentValue] Desirable ([0..1]) value for hue component of {@link Hsb}.
+     * If componentValue isn't defined then method works as getter, otherwise it works as setter.
+     *
+     * @returns {number|Hsb} Returns value of hue component (if method works as getter),
+     * or returns current {@link Hsb} instance (if method works as setter).
+     *
+     * @example
+     * var softBlueHsl = SDV.Color.Model.Hsb.create({
+     *      hue: 0.61,
+     *      saturation: 0.75,
+     *      brightness: 0.5
+     * });
+     *
+     * // It will return 0.61.
+     * softBlueHsl.hue();
+     *
+     * // It will set hue component to 0.59.
+     * softBlueHsl.hue(0.59);
+     *
+     * // Now it will return 0.59.
+     * softBlueHsl.hue();
+     */
+    hsb.hue = <span class="fstat-no" title="function not covered" >function(componentValue) {</span>
+<span class="cstat-no" title="statement not covered" >        return getOrSetComponentValue(this, 'hue', componentValue);</span>
+    };
+&nbsp;
+    /**
+     * Gets or sets value for saturation component of {@link Hsb}.
+     * @public
+     * @function
+     * @memberof Hsb
+     * @param {number} [componentValue] Desirable ([0..1]) value for saturation component of {@link Hsb}.
+     * If componentValue isn't defined then method works as getter, otherwise it works as setter.
+     *
+     * @returns {number|Hsb} Returns value of saturation component (if method works as getter),
+     * or returns current {@link Hsb} instance (if method works as setter).
+     *
+     * @example
+     * var softBlueHsl = SDV.Color.Model.Hsb.create({
+     *      hue: 0.61,
+     *      saturation: 0.75,
+     *      brightness: 0.5
+     * });
+     *
+     * // It will return 0.75.
+     * softBlueHsl.saturation();
+     *
+     * // It will set saturation component to 0.76.
+     * softBlueHsl.saturation(0.76);
+     *
+     * // Now it will return 0.76.
+     * softBlueHsl.saturation();
+     */
+    hsb.saturation = <span class="fstat-no" title="function not covered" >function(componentValue) {</span>
+<span class="cstat-no" title="statement not covered" >        return getOrSetComponentValue(this, 'saturation', componentValue);</span>
+    };
+&nbsp;
+    /**
+     * Gets or sets value for brightness component of {@link Hsb}.
+     * @public
+     * @function
+     * @memberof Hsb
+     * @param {number} [componentValue] Desirable ([0..1]) value for brightness component of {@link Hsb}.
+     * If componentValue isn't defined then method works as getter, otherwise it works as setter.
+     *
+     * @returns {number|Hsb} Returns value of brightness component (if method works as getter),
+     * or returns current {@link Hsb} instance (if method works as setter).
+     *
+     * @example
+     * var softBlueHsl = SDV.Color.Model.Hsb.create({
+     *      hue: 0.61,
+     *      saturation: 0.75,
+     *      brightness: 0.5
+     * });
+     *
+     * // It will return 0.5.
+     * softBlueHsl.brightness();
+     *
+     * // It will set brightness component to 0.56.
+     * softBlueHsl.brightness(0.56);
+     *
+     * // Now it will return 0.56.
+     * softBlueHsl.brightness();
+     */
+    hsb.brightness = <span class="fstat-no" title="function not covered" >function(componentValue) {</span>
+<span class="cstat-no" title="statement not covered" >        return getOrSetComponentValue(this, 'brightness', componentValue);</span>
+    };
+&nbsp;
+    /**
+     * Transforms {@link Hsb} (Hue Saturation Brightness) color to its stringed 6-character hex-code.
+     * @public
+     * @function
+     * @memberof Hsb
+     * @returns {string} Returns 6-character color hex-code.
+     *
+     * @example
+     * var whiteHsb = SDV.Color.Model.Hsb.create({
+     *      hue: 0,
+     *      saturation: 0,
+     *      brightness: 1
+     * });
+     *
+     * // It will return '#ffffff'.
+     * var whiteHex = whiteHsb.toHex();
+     */
+    hsb.toHex = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return this.toRgb().toHex();</span>
+    };
+&nbsp;
+    /**
+     * Transforms {@link Hsb} (Hue Saturation Brightness) color representation to its {@link Rgb} representation.
+     * @public
+     * @function
+     * @memberof Hsb
+     * @returns {Rgb} Returns new instance of {@link Rgb} color representation.
+     *
+     * @example
+     * var whiteHsb = SDV.Color.Model.Hsb.create({
+     *      hue: 0,
+     *      saturation: 0,
+     *      brightness: 1
+     * });
+     *
+     * // It will return new instance of RGB color representation with red = 255, green = 255, blue = 255.
+     * var whiteRgb = whiteHsb.toRgb();
+     */
+    hsb.toRgb = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        var step = this._hue / (1.0 / 6.0);</span>
+&nbsp;
+        // The hue position within the current step.
+<span class="cstat-no" title="statement not covered" >        var pos = step - Math.floor(step);</span>
+&nbsp;
+        // Mix color value adjusted to the brightness.
+<span class="cstat-no" title="statement not covered" >        var m = (Math.floor(step) % 2)</span>
+            ? (1.0 - pos) * this._brightness
+            : pos * this._brightness;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var max = 1.0 * this._brightness;</span>
+<span class="cstat-no" title="statement not covered" >        var min = (1 - this._saturation) * this._brightness;</span>
+<span class="cstat-no" title="statement not covered" >        var med = m + ((1 - this._saturation) * (this._brightness - m));</span>
+<span class="cstat-no" title="statement not covered" >        var r, g, b;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        switch (Math.floor(step))</span>
+        {
+            case 0:
+<span class="cstat-no" title="statement not covered" >                r = max;</span>
+<span class="cstat-no" title="statement not covered" >                g = med;</span>
+<span class="cstat-no" title="statement not covered" >                b = min;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            case 1:
+<span class="cstat-no" title="statement not covered" >                r = med;</span>
+<span class="cstat-no" title="statement not covered" >                g = max;</span>
+<span class="cstat-no" title="statement not covered" >                b = min;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            case 2:
+<span class="cstat-no" title="statement not covered" >                r = min;</span>
+<span class="cstat-no" title="statement not covered" >                g = max;</span>
+<span class="cstat-no" title="statement not covered" >                b = med;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            case 3:
+<span class="cstat-no" title="statement not covered" >                r = min;</span>
+<span class="cstat-no" title="statement not covered" >                g = med;</span>
+<span class="cstat-no" title="statement not covered" >                b = max;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            case 4:
+<span class="cstat-no" title="statement not covered" >                r = med;</span>
+<span class="cstat-no" title="statement not covered" >                g = min;</span>
+<span class="cstat-no" title="statement not covered" >                b = max;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            case 5:
+<span class="cstat-no" title="statement not covered" >                r = max;</span>
+<span class="cstat-no" title="statement not covered" >                g = min;</span>
+<span class="cstat-no" title="statement not covered" >                b = med;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return SDV.Color.Model.Rgb.create({</span>
+            red: Math.round(r * 255.0),
+            green: Math.round(g * 255.0),
+            blue: Math.round(b * 255.0)
+        });
+    };
+&nbsp;
+    /**
+     * Transforms {@link Hsb} (Hue Saturation Brightness) color representation
+     * to its {@link Hsl} (Hue Saturation Lightness) color representation.
+     * @public
+     * @function
+     * @memberof Hsb
+     * @returns {Hsl} Returns new instance of {@link Hsl} (Hue Saturation Lightness) color representation.
+     *
+     * @example
+     * var whiteHsb = SDV.Color.Model.Hsb.create({
+     *      hue: 0,
+     *      saturation: 0,
+     *      brightness: 1
+     * });
+     *
+     * // It will return new instance of HSL color representation with hue = 0, saturation = 0, lightness = 1.
+     * var whiteHsl = whiteHsb.toHsl();
+     */
+    hsb.toHsl = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return this.toRgb().toHsl();</span>
+    };
+&nbsp;
+    /**
+     * Creates new {@link Hsb} instance with same HSB-components values.
+     * @public
+     * @function
+     * @memberof Hsb
+     * @returns {Hsb} Returns new {@link Hsb} instance with same HSB-components values.
+     *
+     * @example
+     * var whiteHsb = SDV.Color.Model.Hsb.create({
+     *      hue: 0,
+     *      saturation: 0,
+     *      lightness: 1
+     * });
+     *
+     * // It will return new instance of HSB color representation with same components values:
+     * // hue = 0, saturation = 0, brightness = 1.
+     * var whiteHsbClone = whiteHsb.clone();
+     */
+    hsb.clone = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return SDV.Color.Model.Hsb.create({</span>
+            hue: this._hue,
+            saturation: this._saturation,
+            brightness: this._brightness
+        });
+    };
+&nbsp;
+    /**
+     * Checks if given object is equals to {@link Hsb} instance.
+     * @public
+     * @function
+     * @memberof Hsb
+     * @returns {boolean} Returns true if given object is {@link Hsb} instance with same HSB-channels values, otherwise returns false.
+     *
+     * @example
+     * var whiteHsb = SDV.Color.Model.Hsb.create({
+     *      hue: 0,
+     *      saturation: 0,
+     *      brightness: 1
+     * });
+     *
+     * var anotherWhiteHsb = whiteHsb.clone();
+     *
+     * var blackHsb = SDV.Color.Model.Hsb.create({
+     *      hue: 0,
+     *      saturation: 0,
+     *      brightness: 0
+     * });
+     *
+     * whiteHsb.equals(); // false.
+     * whiteHsb.equals('#ffffff'); // false.
+     * whiteHsb.equals('white'); // false.
+     * whiteHsb.equals({ hue: 0, saturation: 0, brightness: 1 }); // false.
+     * whiteHsb.equals(blackHsb); // false.
+     * whiteHsb.equals(anotherWhiteHsb); // true.
+     */
+    hsb.equals = <span class="fstat-no" title="function not covered" >function(obj) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!SDV.Color.Model.Hsb.isHsb(obj)) {</span>
+<span class="cstat-no" title="statement not covered" >            return false;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return this._hue === obj._hue</span>
+            &amp;&amp; this._saturation === obj._saturation
+            &amp;&amp; this._brightness === obj._brightness;
+    };
+})();</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 30 2015 02:12:28 GMT+0500 (RTZ 4 (зима))</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>
